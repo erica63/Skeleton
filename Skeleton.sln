@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.28307.779
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary", "ClassLibrary\ClassLibrary.csproj", "{E8BB51CE-8325-4BD3-BDFA-B013EEB87B2A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testing1", "Testing1\Testing1.csproj", "{44D57572-AEE2-41BA-8F8B-44A0C7B08818}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestingCustomer", "Testing1\TestingCustomer.csproj", "{44D57572-AEE2-41BA-8F8B-44A0C7B08818}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testing2", "Testing2\Testing2.csproj", "{78AF0CA5-71B3-4959-9E05-A64ED523FFA3}"
 EndProject
@@ -35,6 +35,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "AdminSystem", "AdminSystem\
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "54436"
+		SlnRelativePath = "AdminSystem\"
 	EndProjectSection
 EndProject
 Global
