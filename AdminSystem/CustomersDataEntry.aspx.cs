@@ -19,10 +19,10 @@ public partial class _1_DataEntry : System.Web.UI.Page
         clsCustomer ACustomer = new clsCustomer();
         //capture the customer name
         ACustomer.CustomerName = txtCustomerName.Text;
-        //ACustomer.CustomerId = txtCustomerId.Text;
+        ACustomer.CustomerId = int.Parse(txtCustomerId.Text);
         ACustomer.CustomerEmailAddress = txtCustomerEmailAddress.Text;
-        ACustomer.CustomerAddress = txtCustomerAddress.Text;
-        //ACustomer.DateAdded = txtCustomerDOB.Text.ToString;
+        ACustomer.CustomerAddress = txtCustomerAddress.Text;     
+        ACustomer.CustomerDOB = DateTime.Parse(txtCustomerDOB.Text);
         //store the customer in the session object
         Session["ACustomer"] = ACustomer;
         //navigate to the viewer page

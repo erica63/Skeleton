@@ -23,9 +23,9 @@ namespace Testing1
             //create some test data to assign to the property
             Boolean TestData = true;
             //assign the data to the property
-            ACustomer.Active = TestData;
+            ACustomer.Member = TestData;
             //test to see that the two values are the same
-            Assert.AreEqual(ACustomer.Active, TestData);
+            Assert.AreEqual(ACustomer.Member, TestData);
         }
 
         [TestMethod]
@@ -36,9 +36,9 @@ namespace Testing1
             //create some test data to assign to the property
             DateTime TestData = DateTime.Now.Date;
             //assign the data to the property
-            ACustomer.DateAdded = TestData;
+            ACustomer.CustomerDOB = TestData;
             //test to see that the two values are the same
-            Assert.AreEqual(ACustomer.DateAdded, TestData);
+            Assert.AreEqual(ACustomer.CustomerDOB, TestData);
         }
 
         [TestMethod]
