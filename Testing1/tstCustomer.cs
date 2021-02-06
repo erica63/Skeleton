@@ -34,7 +34,7 @@ namespace Testing1
             //create an instance of the class we want to create
             clsCustomer ACustomer = new clsCustomer();
             //create some test data to assign to the property
-            DateTime TestData = DateTime.Now.Date;
+            DateTime TestData = DateTime.Parse("19/7/2000");
             //assign the data to the property
             ACustomer.CustomerDOB = TestData;
             //test to see that the two values are the same
