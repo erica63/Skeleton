@@ -9,5 +9,6 @@ namespace ClassLibrary
         public int Rating { get; set; }
         public string Description { get; set; }
         public decimal TotalPrice { get; set; }
+        public string OrderId { get; set; }
     }
 }
