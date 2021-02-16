@@ -60,7 +60,7 @@ namespace Testing4
             //Create an instance of the class we want to create
             clsOrder AnOrder = new clsOrder();
             //Create some test data to assign to the property
-            string TestData = "Fila";
+            string TestData = "FILA";
             //Assign the data to the property
             AnOrder.Description = TestData;
             //Test to see that the two values are the same
@@ -87,7 +87,7 @@ namespace Testing4
             //Boolean variable to store the results of the validation
             Boolean Found = false;
             //Create some test data to use with the method
-            Int32 OrderId = 223;
+            Int32 OrderId = 7;
             //Invoke the method
             Found = AnOrder.Find(OrderId);
             //Test to see if the result is true
@@ -104,11 +104,11 @@ namespace Testing4
             //Boolean variable to record if the data is OK (assume it is)
             Boolean OK = true;
             //Create some test data to use with the method
-            Int32 OrderId = 223;
+            Int32 OrderId = 7;
             //Invoke the method
             Found = AnOrder.Find(OrderId);
             //Check the Order Id
-            if (AnOrder.OrderId != 223)
+            if (AnOrder.OrderId != 7)
             {
                 OK = false;
             }
@@ -126,11 +126,11 @@ namespace Testing4
             //Boolean variable to record if the data is OK (assume it is)
             Boolean OK = true;
             //Create some test data to use with the method
-            Int32 OrderId = 223;
+            Int32 OrderId = 7;
             //Invoke the method
             Found = AnOrder.Find(OrderId);
             //Check the Order Id
-            if (AnOrder.DateAdded != Convert.ToDateTime("16/09/2020")) 
+            if (AnOrder.DateAdded != Convert.ToDateTime("30/01/2021")) 
             {
                 OK = false;
             }
@@ -148,7 +148,7 @@ namespace Testing4
             //Boolean variable to record if the data is OK (assume it is)
             Boolean OK = true;
             //Create some test data to use with the method
-            Int32 OrderId = 223;
+            Int32 OrderId = 7;
             //Invoke the method
             Found = AnOrder.Find(OrderId);
             //Check the Order Id
@@ -170,11 +170,11 @@ namespace Testing4
             //Boolean variable to record if the data is OK (assume it is)
             Boolean OK = true;
             //Create some test data to use with the method
-            Int32 OrderId = 223;
+            Int32 OrderId = 7;
             //Invoke the method
             Found = AnOrder.Find(OrderId);
             //Check the Order Id
-            if (AnOrder.Description != "Fila")
+            if (AnOrder.Description != "FILA")
             {
                 OK = false;
             }
@@ -192,7 +192,7 @@ namespace Testing4
             //Boolean variable to record if the data is OK (assume it is)
             Boolean OK = true;
             //Create some test data to use with the method
-            Int32 OrderId = 223;
+            Int32 OrderId = 7;
             //Invoke the method
             Found = AnOrder.Find(OrderId);
             //Check the Order Id
