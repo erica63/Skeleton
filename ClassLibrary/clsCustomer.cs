@@ -154,11 +154,11 @@ namespace ClassLibrary
             }
 
             //if the customer email address is too long
-            //if (CustomerEmailAddress.Length > 50)
-            //{
+            if (CustomerEmailAddress.Length > 50)
+            {
                 //record the error
-                //Error = Error + "The CustomerEmailAddress must be less than 50 characters : ";
-            //}
+                Error = Error + "The CustomerEmailAddress must be less than 50 characters : ";
+            }
 
             if (CustomerAddress.Length == 0)
             {
@@ -171,6 +171,16 @@ namespace ClassLibrary
             {
                 //record the error
                 Error = Error + "The CustomerAddress must be less than 50 characters : ";
+            }
+
+            if (CustomerName.Length == 0)
+            {
+                Error = Error + "The customer Name may not be blank : ";
+            }
+
+            if (CustomerName.Length > 50)
+            {
+                Error = Error + "The customer Name must be less than 50 characters : ";
             }
 
             //return any error messages
