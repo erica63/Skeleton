@@ -167,11 +167,11 @@ namespace ClassLibrary
             }
 
             //if the customer email address is too long
-            //if (CustomerAddress.Length > 50)
-            //{
+            if (CustomerAddress.Length > 50)
+            {
                 //record the error
-                //Error = Error + "The CustomerAddress must be less than 50 characters : ";
-            //}
+                Error = Error + "The CustomerAddress must be less than 50 characters : ";
+            }
 
             //return any error messages
             return Error;
