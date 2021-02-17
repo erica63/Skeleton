@@ -141,5 +141,40 @@ namespace ClassLibrary
             }
 
         }
+
+        public string Valid(string CustomerName, string CustomerDOB, string CustomerEmailAddress, string CustomerAddress)
+        {
+            //create a string variable to store the error
+            String Error = "";
+            //if the customer email address is blank
+            if (CustomerEmailAddress.Length == 0)
+            {
+                //record the error
+                Error = Error + "The customer email address may not be blank : ";
+            }
+
+            //if the customer email address is too long
+            //if (CustomerEmailAddress.Length > 50)
+            //{
+                //record the error
+                //Error = Error + "The CustomerEmailAddress must be less than 50 characters : ";
+            //}
+
+            if (CustomerAddress.Length == 0)
+            {
+                //record the error
+                Error = Error + "The customer email address may not be blank : ";
+            }
+
+            //if the customer email address is too long
+            //if (CustomerAddress.Length > 50)
+            //{
+                //record the error
+                //Error = Error + "The CustomerAddress must be less than 50 characters : ";
+            //}
+
+            //return any error messages
+            return Error;
+        }
     }
 }
