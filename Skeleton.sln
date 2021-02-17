@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testing2", "Testing2\Testin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testing3", "Testing3\Testing3.csproj", "{CDEAB9D5-740F-43A5-953F-FC14371EFFAC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testing6", "Testing6\Testing6.csproj", "{288EB452-7B75-4934-B0BB-07415B6A81FE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestingStaff", "Testing6\TestingStaff.csproj", "{288EB452-7B75-4934-B0BB-07415B6A81FE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestingOrder", "Testing4\TestingOrder.csproj", "{A3AA37D5-DAA0-4AF0-AD82-419646520965}"
 EndProject
