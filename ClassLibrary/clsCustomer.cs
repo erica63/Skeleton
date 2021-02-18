@@ -146,6 +146,7 @@ namespace ClassLibrary
         {
             //create a string variable to store the error
             String Error = "";
+            DateTime DateTemp;
             //if the customer email address is blank
             if (CustomerEmailAddress.Length == 0)
             {
@@ -182,6 +183,30 @@ namespace ClassLibrary
             {
                 Error = Error + "The customer Name must be less than 50 characters : ";
             }
+
+            try
+            {
+                //copy the dateAdded value to the DateTemp variable
+                DateTemp = Convert.ToDateTime(CustomerDOB);
+                if (DateTemp < DateTime.Parse("19/7/2000"))
+                {
+                    //record the error
+                    Error = Error + "The date cannot be in the past : ";
+                }
+
+                if (DateTemp > DateTime.Parse("19/7/2000"))
+                {
+                    //record the error
+                    Error = Error + "The date cannot be in the future : ";
+                }
+            }
+            catch
+            {
+                //record the error
+                Error = Error + "The date was not a valid date : ";
+            }
+
+
 
             //return any error messages
             return Error;
