@@ -30,6 +30,6 @@ public partial class _1_DataEntry : System.Web.UI.Page
         //store the ID in the session object 
         Session["StaffMember"] = StaffMember;
         //navigate to the viewer page 
-        Response.Redirect("StaffsViewers.aspx");
+        Response.Redirect("StaffsViewer.aspx");
     }
 }
