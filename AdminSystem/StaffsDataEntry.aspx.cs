@@ -26,10 +26,44 @@ public partial class _1_DataEntry : System.Web.UI.Page
         //capture Staff Email address 
         StaffMember.StaffEmailAddress = txtStaffEmail.Text;
         //capture staff salary
-        StaffMember.StaffSalary = Decimal.Parse(txtStaffSalary.Text); 
+        StaffMember.StaffSalary = Decimal.Parse(txtStaffSalary.Text);
+        //capture Employer/employee
+       
         //store the ID in the session object 
         Session["StaffMember"] = StaffMember;
         //navigate to the viewer page 
         Response.Redirect("StaffsViewer.aspx");
+    }
+
+    protected void btnFind_Click(object sender, EventArgs e)
+    {
+        //create an instance of the Staff class 
+        clsStaff StaffMember = new clsStaff();
+        //variable to store the primary key 
+        Int32 StaffID;
+        //variable to store the result of the find operation 
+        Boolean Found = false;
+        //get the primary key entered by the user 
+        StaffID = Convert.ToInt32(txtStaffID.Text);
+        //find the record 
+        Found = StaffMember.Find(StaffID);
+        //if found 
+        if (Found == true)
+        {
+            //display the values of the properties in the form 
+            txtStaffName.Text = StaffMember.StaffName;
+            txtStaffID.Text = StaffMember.StaffID.ToString();
+            txtStaffEmail.Text = StaffMember.StaffEmailAddress;
+            txtStaffSalary.Text = StaffMember.StaffSalary.ToString();
+            txtStaffDOB.Text = StaffMember.StaffDOB.ToString();
+
+        }
+
+       
+    }
+
+    protected void btnCancel_Click(object sender, EventArgs e)
+    {
+
     }
 }
