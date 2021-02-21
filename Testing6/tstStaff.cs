@@ -147,7 +147,7 @@ namespace Testing6
             //invoke the method
             Found = StaffMember.Find(StaffID);
             //check the property
-            if (StaffMember.StaffName != "Jay")
+            if (StaffMember.StaffName != "Jay ")
             {
                 OK = false;
             }
@@ -157,7 +157,7 @@ namespace Testing6
 
         [TestMethod]
         public void TestEmployerFound()
-        {
+        { 
             //create an instance of the class we want to create 
             clsStaff StaffMember = new clsStaff();
             //boolean variable to store the result of the search 
@@ -234,7 +234,7 @@ namespace Testing6
             //invoke the method 
             Found = StaffMember.Find(StaffID);
             //check the property 
-            if (StaffMember.StaffSalary != 35000)
+            if (StaffMember.StaffSalary != 50000)
             {
                 OK = false;
             }
@@ -242,6 +242,10 @@ namespace Testing6
             Assert.IsTrue(OK);
         }
 
+
+        
+
     }
+
 
 }

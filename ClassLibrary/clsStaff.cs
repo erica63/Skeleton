@@ -19,11 +19,11 @@ namespace ClassLibrary
             set
             {
                 //set the private data 
-                mEmployer = value; 
+                mEmployer = value;
             }
         }
         //private data member for Staff Name 
-        private String mStaffName; 
+        private String mStaffName;
         //public property for staff Name 
         public string StaffName
         {
@@ -35,10 +35,10 @@ namespace ClassLibrary
             set
             {
                 //set the private data value for Staff Name 
-                mStaffName = value; 
+                mStaffName = value;
             }
         }
-        
+
         //private data for Staff DOB
         private DateTime mStaffDOB;
 
@@ -107,16 +107,36 @@ namespace ClassLibrary
 
         public bool Find(int StaffID)
         {
-            //set the private data members to the test data value 
-            mStaffID = 1;
-            mStaffName = "Jay";
-            mStaffEmailAddress = "JayEmail@gmail.com";
-            mEmployer = true;
-            mStaffDOB = Convert.ToDateTime("23/03/1999");
-            mStaffSalary = 35000;
+            //create an instance of the new data connection 
+            clsDataConnection DB = new clsDataConnection();
+            //add the parameter for the staff id to search for 
+            DB.AddParameter("@StaffID", StaffID);
+            //execute the stored procedure 
+            DB.Execute("sproc_tblStaff_FilterByStaffID");
+            //if one record is found (there should be either one or zero!)
+            if (DB.Count == 1)
+            {
+                //copy the data from the database to the private data members 
+                mStaffID = Convert.ToInt32(DB.DataTable.Rows[0]["StaffID"]);
+                mStaffName = Convert.ToString(DB.DataTable.Rows[0]["StaffName"]);
+                mStaffDOB = Convert.ToDateTime(DB.DataTable.Rows[0]["StaffDOB"]);
+                mStaffEmailAddress = Convert.ToString(DB.DataTable.Rows[0]["StaffEmail"]);
+                mEmployer = Convert.ToBoolean(DB.DataTable.Rows[0]["Employer/Employee"]);
+                mStaffSalary = Convert.ToDecimal(DB.DataTable.Rows[0]["StaffSalary"]);
+                //return that everything worked OK
+                return true;
 
-            //always return true 
-            return true;
+            }
+            //if no record was found 
+            else
+            {
+                //return false indicating a problem 
+                return false;
+            }
+
+
         }
     }
 }
+               
+
