@@ -136,7 +136,54 @@ namespace ClassLibrary
 
 
         }
+
+        public string Valid(string staffID, string staffName, string staffEmail, string staffDOB, string employer, string staffSalary)
+        {
+            //create a string variable to store the error
+            String Error = "";
+            DateTime TestDOB;
+            //if the customer email address is blank
+            if (staffName.Length == 0)
+            {
+                Error = Error + "Staff Name cannot not be blank : ";
+            }
+
+            if (staffName.Length > 50)
+            {
+                Error = Error + "Staff Name must be less than 50 characters : ";
+            }
+
+            try
+            {
+                //copy the dateAdded value to the DateTemp variable
+                TestDOB = Convert.ToDateTime(staffDOB);
+                if (TestDOB < DateTime.Parse("01/01/1940"))
+                {
+                    //record the error
+                    Error = Error + "The date cannot be in the past : ";
+                }
+
+                if (TestDOB > DateTime.Parse("01/01/1940"))
+                {
+                    //record the error
+                    Error = Error + "The date cannot be in the future : ";
+                }
+            }
+            catch
+            {
+                //record the error
+                Error = Error + "The date was not a valid date : ";
+            }
+
+
+
+            //return any error messages
+            return Error;
+        }
+
     }
-}
+    }
+
+
                
 
