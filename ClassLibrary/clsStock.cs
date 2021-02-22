@@ -13,5 +13,6 @@ namespace ClassLibrary
         public bool ItemAvailable { get; set; }
         public DateTime DateItemAdded { get; set; }
         public decimal ItemSize { get; set; }
+        public int StockLevel { get; set; }
     }
 }
