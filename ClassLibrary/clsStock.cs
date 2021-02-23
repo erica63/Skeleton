@@ -14,5 +14,12 @@ namespace ClassLibrary
         public DateTime DateItemAdded { get; set; }
         public decimal ItemSize { get; set; }
         public int StockLevel { get; set; }
+
+        public bool Find(int itemId)
+        {
+            //always return true
+            return true;
+
+        }
     }
 }
