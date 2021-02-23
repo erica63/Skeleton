@@ -17,7 +17,7 @@ namespace Testing5
 
         }
 
-            [TestMethod]
+        [TestMethod]
         public void ItemIdOK()
         {
             //create an instance of the class we want to create
@@ -75,7 +75,7 @@ namespace Testing5
             //create an instance of the class we want to create
             clsStock AStock = new clsStock();
             //create some test data to assign to the property
-            decimal TestData = 7; 
+            decimal TestData = decimal.Parse("7.5");
             //assign the data to the property
             AStock.ItemSize = TestData;
             //test to see the two values are the same
@@ -95,8 +95,19 @@ namespace Testing5
             Assert.AreEqual(AStock.ItemSize, TestData);
         }
 
-
-
+        [TestMethod]
+        public void FindMethodOK()
+        {
+            //create an instance of the class we want to create
+            clsStock AStock = new clsStock();
+            //Boolean variable to store the results of the validation
+            Boolean Found = false;
+            //create some test data to use with the method
+            Int32 ItemId = 1;
+            //invoke the method
+            Found = AStock.Find(ItemId);
+            //test to see if the result is true
+            Assert.IsTrue(Found);
         }
     }
-
+}
