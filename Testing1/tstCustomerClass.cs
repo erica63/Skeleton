@@ -49,7 +49,7 @@ namespace Testing1
             //create an instance of the class we want to create
             clsCustomerCollection AllCustomers = new clsCustomerCollection();
             //create some test data to assign to the property
-            Int32 Somecount = 0;
+            Int32 Somecount = 2;
             //assing the data to the property
             AllCustomers.Count = Somecount;
             Assert.AreEqual(AllCustomers.Count, Somecount);
@@ -74,33 +74,6 @@ namespace Testing1
             //test to see that the two values are same
             Assert.AreEqual(AllCustomers.ThisCustomer, TestCustomer);
         }
-
-        [TestMethod]
-        public void ListAndCountOK()
-        {
-            //create an instance of the class we want to create
-            clsCustomerCollection AllCustomers = new clsCustomerCollection();
-            //create some test data to assign to the property
-            //in this case the data needs to be a list of objects
-            List<clsCustomer> TestList = new List<clsCustomer>();
-            //add an item to the list
-            //create the item of test data
-            clsCustomer testItem = new clsCustomer();
-            //set its properties
-            testItem.CustomerId = 1;
-            testItem.CustomerName = "Suraj";
-            testItem.CustomerEmailAddress = "suraj@gmail.com";
-            testItem.CustomerDOB = DateTime.Parse("19/7/2000");
-            testItem.CustomerAddress = "12, Marydene drive";
-            testItem.Member = true;
-            //add the item to the test list
-            TestList.Add(testItem);
-            //assign the data to the property
-            AllCustomers.CustomerList = TestList;
-            //test to see that the two values are the same 
-            Assert.AreEqual(AllCustomers.Count, TestList.Count);
-        }
-
 
     }
 }
