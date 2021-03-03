@@ -29,17 +29,22 @@ public partial class _1_DataEntry : System.Web.UI.Page
         {
 
             //capture the customer name
-            ACustomer.CustomerName = txtCustomerName.Text;
+            ACustomer.CustomerName = CustomerName;
             //capture the customer email address
-            ACustomer.CustomerEmailAddress = txtCustomerEmailAddress.Text;
+            ACustomer.CustomerEmailAddress = CustomerEmailAddress;
             //capture the customer address
-            ACustomer.CustomerAddress = txtCustomerAddress.Text;
+            ACustomer.CustomerAddress = CustomerAddress;
             //capture the customer DOB
-            ACustomer.CustomerDOB = DateTime.Parse(txtCustomerDOB.Text);
-            //store the customer in the session object
-            Session["ACustomer"] = ACustomer;
-            //navigate to the viewer page
-            Response.Redirect("CustomersViewer.aspx");
+            ACustomer.CustomerDOB = DateTime.Parse(CustomerDOB);
+            //capture the member
+            ACustomer.Member = chkMember.Checked;
+            clsCustomerCollection CustomerList = new clsCustomerCollection();
+            //set the this address property
+            CustomerList.ThisCustomer = ACustomer;
+            //add the new record
+            CustomerList.Add();
+            //navigate to the list page
+            Response.Redirect("CustomersList.aspx");
         }
         else
         {
