@@ -43,17 +43,17 @@ namespace Testing1
             Assert.AreEqual(AllCustomers.CustomerList, TestList);
         }
 
-        [TestMethod]
-        public void CountPropertyOK()
-        {
+        //[TestMethod]
+        //public void CountPropertyOK()
+        //{
             //create an instance of the class we want to create
-            clsCustomerCollection AllCustomers = new clsCustomerCollection();
+            //clsCustomerCollection AllCustomers = new clsCustomerCollection();
             //create some test data to assign to the property
-            Int32 Somecount = 2;
+            //Int32 Somecount = 3;
             //assing the data to the property
-            AllCustomers.Count = Somecount;
-            Assert.AreEqual(AllCustomers.Count, Somecount);
-        }
+            //AllCustomers.Count = Somecount;
+            //Assert.AreEqual(AllCustomers.Count, Somecount);
+        //}
 
         [TestMethod]
         public void ThisCusotmerPropertyOK()
@@ -75,5 +75,34 @@ namespace Testing1
             Assert.AreEqual(AllCustomers.ThisCustomer, TestCustomer);
         }
 
-    }
+        [TestMethod]
+        public void AddMethodOK()
+        {
+            //create an instance of the class we want to create
+            clsCustomerCollection AllCustomers = new clsCustomerCollection();
+            //create the item of test data
+            clsCustomer testItem = new clsCustomer();
+            //var to store the primary key
+            Int32 PrimaryKey = 0;
+            //set its properties
+            testItem.CustomerId = 1;
+            testItem.CustomerName = "Thomas";
+            testItem.CustomerEmailAddress = "thomas@gmail.com";
+            testItem.CustomerDOB = DateTime.Parse("22/07/1995");
+            testItem.CustomerAddress = "Downtown, LA";
+            testItem.Member = true;
+            //set this address to the test data
+            AllCustomers.ThisCustomer = testItem;
+            //add the record
+            PrimaryKey = AllCustomers.Add();
+            //set the primary key of the test data
+            testItem.CustomerId = PrimaryKey;
+            //find the record
+            AllCustomers.ThisCustomer.Find(PrimaryKey);
+            //test to see that the two values are the same
+            Assert.AreEqual(AllCustomers.ThisCustomer, testItem);
+
+        }
+
+        }
 }
