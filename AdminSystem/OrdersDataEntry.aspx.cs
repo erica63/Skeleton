@@ -17,22 +17,47 @@ public partial class _1_DataEntry : System.Web.UI.Page
     {
         //Create a new instance of clsOrder
         clsOrder AnOrder = new clsOrder();
+
         //Capture the order id
         AnOrder.OrderId = int.Parse(txtOrderId.Text);
+
         //Capture order date
-        AnOrder.DateAdded = DateTime.Parse(txtOrderDate.Text);
+        String DateAdded = txtOrderDate.Text;
+
         //Capture order price
         AnOrder.TotalPrice = decimal.Parse(txtOrderPrice.Text);
+
         //Capture order description
-        AnOrder.Description = txtOrderDesc.Text;
+        String Description = txtOrderDesc.Text;
+
         //Capture order rating
         AnOrder.Rating = int.Parse(txtOrderRating.Text);
 
-        //Store the address in the session object
-        Session["AnOrder"] = AnOrder;
-        //Navigate to the viewer page
-        Response.Redirect("OrdersViewer.aspx");
+        //Variable to store any error messages
+        string Error = "";
 
+        //Validate the data
+        Error = AnOrder.Valid(DateAdded, Description);
+        if (Error == "")
+        {
+            //Capture Description
+            AnOrder.Description = Description;
+            //Capture Date added
+            AnOrder.DateAdded = Convert.ToDateTime(DateAdded);
+
+
+
+            //Store the address in the session object
+            Session["AnOrder"] = AnOrder;
+            //Navigate to the viewer page
+            //Response.Redirect("OrdersViewer.aspx");
+            Response.Write("OrdersViewer.aspx");
+        }
+        else
+        {
+            //Display the error message
+            lblError.Text = Error;
+        }
     }
 
     protected void btnFind_Click(object sender, EventArgs e)
