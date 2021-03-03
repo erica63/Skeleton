@@ -144,5 +144,56 @@ namespace ClassLibrary
                 return false;
             }
         }
+
+
+        //Function for the public validation
+        public string Valid(string DateAdded, string Description) //Do I include decimals or integers? What about primary key?
+        {
+            //Create a string variable to store the error
+            String Error = "";
+            //Create a temporary variable to store date values
+            DateTime DateTemp;
+
+            //If the Description is blank
+            if (Description.Length == 0)
+            {
+                //Record the error
+                Error = Error + "The description may not be blank : ";
+            }
+
+            //If the Description is greater than 20 characters
+            if (Description.Length > 20)
+            {
+                //Record the error
+                Error = Error + "The description must be less than 20 characters : ";
+            }
+            try
+            {
+                //Copy the dateAdded value to the DateTemp variable
+                DateTemp = Convert.ToDateTime(DateAdded);
+                if (DateTemp < DateTime.Now.Date)
+                {
+                    //Record the error
+                    Error = Error + "The date cannot be in the past : ";
+                }
+
+                //Check to see if the date is greater than today's date
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    //Record the error
+                    Error = Error + "The date cannot be in the future : ";
+                }
+            }
+
+            catch
+            {
+                //Record the error
+                Error = Error + "The date was not a valid date : ";
+            }
+
+            //Return any error messages
+            return Error;
+        }
+        
     }
 }
