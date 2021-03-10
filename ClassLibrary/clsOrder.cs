@@ -39,20 +39,20 @@ namespace ClassLibrary
             }
         }
 
-        //Rating private member variable
-        private Decimal mTotalPrice;
-        //Rating public property
-        public Decimal TotalPrice
+        //ShippingAddress private member variable
+        private String mShippingAddress;
+        //ShippingAddress public property
+        public String ShippingAddress
         {
             get
             {
                 //This line of code sends data out of the property
-                return mTotalPrice;
+                return mShippingAddress;
             }
             set
             {
                 //This line of code allows data into the property
-                mTotalPrice = value;
+                mShippingAddress = value;
             }
         }
 
@@ -90,31 +90,22 @@ namespace ClassLibrary
             }
         }
 
-        //Rating private member variable
-        private Int32 mRating;
-        //Rating public property
-        public Int32 Rating
+        //OrderQuantity private member variable
+        private Int32 mOrderQuantity;
+        //OrderQuantity public property
+        public Int32 OrderQuantity
         {
             get
             {
                 //This line of code sends data out of the property
-                return mRating;
+                return mOrderQuantity;
             }
             set
             {
                 //This line of code allows data into the property
-                mRating = value;
+                mOrderQuantity = value;
             }
         }
-
-
-        //public bool Delivery { get; set; }
-        //public DateTime DateAdded { get; set; }
-        //public int Rating { get; set; }
-        //public string Description { get; set; }
-        //public decimal TotalPrice { get; set; }
-
-
 
         public bool Find(int OrderId)
         {
@@ -130,10 +121,10 @@ namespace ClassLibrary
                 //Copy the data from the database to the private data members
                 mOrderId = Convert.ToInt32(DB.DataTable.Rows[0]["OrderId"]);
                 mDateAdded = Convert.ToDateTime(DB.DataTable.Rows[0]["OrderDate"]);
-                mTotalPrice = Convert.ToDecimal(DB.DataTable.Rows[0]["OrderPrice"]);
+                mShippingAddress = Convert.ToString(DB.DataTable.Rows[0]["ShippingAddress"]);
                 mDelivery = Convert.ToBoolean(DB.DataTable.Rows[0]["OrderDelivery"]);
                 mDescription = Convert.ToString(DB.DataTable.Rows[0]["OrderDesc"]);
-                mRating = Convert.ToInt16(DB.DataTable.Rows[0]["OrderRating"]);
+                mOrderQuantity = Convert.ToInt32(DB.DataTable.Rows[0]["OrderQuantity"]);
                 //Always return true
                 return true;
             }
@@ -147,12 +138,14 @@ namespace ClassLibrary
 
 
         //Function for the public validation
-        public string Valid(string DateAdded, string Description) //Do I include decimals or integers? What about primary key?
+        public string Valid(string DateAdded, string Description, string ShippingAddress, int Quantity)
         {
             //Create a string variable to store the error
             String Error = "";
             //Create a temporary variable to store date values
             DateTime DateTemp;
+            //Create a temporary variable to store integer values
+            int QuantityTemp;
 
             //If the Description is blank
             if (Description.Length == 0)
@@ -167,6 +160,52 @@ namespace ClassLibrary
                 //Record the error
                 Error = Error + "The description must be less than 20 characters : ";
             }
+
+            //If Shipping Address is blank
+            if (ShippingAddress.Length == 0)
+            {
+                //Record the error
+                Error = Error + "The shipping address may not be blank : ";
+            }
+
+            //If Shipping Address is greater than 50 characters
+            if (ShippingAddress.Length > 50)
+            {
+                //Record the error
+                Error = Error + "The shipping address must be less than 50 characters : ";
+            }
+
+            try
+            {
+                //Copy the orderQuantity value to the QuantityTemp variable
+                QuantityTemp = Convert.ToInt32(Quantity);
+                //If the Order Quantity is less than 0
+                if (QuantityTemp < 0)
+                {
+                    //Record the error
+                    Error = Error + "The order quantity may not be less than 0 : ";
+                }
+
+                //If the Order Quantity is blank/zero
+                if (QuantityTemp == 0)
+                {
+                    //Record the error
+                    Error = Error + "The order quantity may not be blank/zero : ";
+                }
+
+                //If the order quantity is largest integer value + 1
+                /** if (Quantity > int.MaxValue)
+                {
+                    //Record the error
+                    Error = Error + "The order quantity may not be larger than 2147483648 : ";
+                }*/
+
+            } catch
+            {
+                //Record the error
+                Error = Error + "The order quantity was not a valid integer : ";
+            }
+           
             try
             {
                 //Copy the dateAdded value to the DateTemp variable

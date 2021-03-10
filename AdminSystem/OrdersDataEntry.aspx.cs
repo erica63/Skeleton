@@ -18,32 +18,37 @@ public partial class _1_DataEntry : System.Web.UI.Page
         //Create a new instance of clsOrder
         clsOrder AnOrder = new clsOrder();
 
-        //Capture the order id
+        //Capture the order id, do I remove this?
         AnOrder.OrderId = int.Parse(txtOrderId.Text);
 
         //Capture order date
         String DateAdded = txtOrderDate.Text;
 
-        //Capture order price
-        AnOrder.TotalPrice = decimal.Parse(txtOrderPrice.Text);
+        //Capture shipping address
+        String ShippingAddress = txtShippingAddress.Text;
 
         //Capture order description
         String Description = txtOrderDesc.Text;
 
-        //Capture order rating
-        AnOrder.Rating = int.Parse(txtOrderRating.Text);
+        //Capture order quantity
+        int OrderQuantity = int.Parse(txtOrderQuantity.Text);
 
         //Variable to store any error messages
         string Error = "";
 
         //Validate the data
-        Error = AnOrder.Valid(DateAdded, Description);
+        Error = AnOrder.Valid(DateAdded, Description, ShippingAddress, OrderQuantity);
         if (Error == "")
         {
             //Capture Description
             AnOrder.Description = Description;
-            //Capture Date added
+            //Capture Date
             AnOrder.DateAdded = Convert.ToDateTime(DateAdded);
+            //Capture ShippingAddress
+            AnOrder.ShippingAddress = ShippingAddress;
+            //Capture OrderQuantity
+            AnOrder.OrderQuantity = OrderQuantity;
+            
 
 
 
@@ -78,10 +83,15 @@ public partial class _1_DataEntry : System.Web.UI.Page
             //Display the values of the properties in the form
             txtOrderId.Text = AnOrder.OrderId.ToString();
             txtOrderDate.Text = AnOrder.DateAdded.ToString();
-            txtOrderPrice.Text = AnOrder.TotalPrice.ToString();
+            txtShippingAddress.Text = AnOrder.ShippingAddress.ToString();
             txtOrderDesc.Text = AnOrder.Description;
-            txtOrderRating.Text = AnOrder.Rating.ToString();
+            txtOrderQuantity.Text = AnOrder.OrderQuantity.ToString();
 
         }
+    }
+
+    protected void txtOrderId_TextChanged(object sender, EventArgs e)
+    {
+
     }
 }
