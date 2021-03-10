@@ -8,9 +8,22 @@ using ClassLibrary;
 
 public partial class _1_DataEntry : System.Web.UI.Page
 {
+    //variable to store the primary key
+    Int32 CustomerId;
+
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        //get the number of the address to be processed
+        CustomerId = Convert.ToInt32(Session["CustomerId"]);
+        if (IsPostBack == false)
+        {
+            //if this is not a new record
+            if (CustomerId != -1)
+            {
+                //display the current data for the record
+                //DisplayCustomers();
+            }
+        }
     }
 
     protected void btnOK_Click(object sender, EventArgs e)
