@@ -17,12 +17,23 @@ public partial class _1_DataEntry : System.Web.UI.Page
     {
         //create a new instance of clsStock
         clsStock AStock = new clsStock();
+        //capture the item id
+        AStock.ItemId = int.Parse(txtItemId.Text);
         //capture the item name
         AStock.ItemName = txtItemName.Text;
-        //store the item name in the session object
+        //capture item available
+
+        //capture date item added
+        AStock.DateItemAdded = txtDateItemAdded.Text;
+        //capture item size
+        AStock.ItemSize = decimal.Parse(txtItemSize.Text);
+        //capture stock level
+        AStock.StockLevel = int.Parse(txtStockLevel.Text);
+        //store the data in the session object
         Session["AStock"] = AStock;
         //navigate to the viewer page
         Response.Redirect("StocksViewer.aspx");
 
     }
 }
+
