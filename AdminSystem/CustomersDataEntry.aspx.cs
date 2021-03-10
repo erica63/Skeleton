@@ -21,9 +21,27 @@ public partial class _1_DataEntry : System.Web.UI.Page
             if (CustomerId != -1)
             {
                 //display the current data for the record
-                //DisplayCustomers();
+                DisplayCustomers();
             }
         }
+
+        void DisplayCustomers()
+        {
+            //create an instance of the address book
+            clsCustomerCollection CustomerBook = new clsCustomerCollection();
+            //find the record to update
+            CustomerBook.ThisCustomer.Find(CustomerId);
+            //display the data for this record
+            txtCustomerId.Text = CustomerBook.ThisCustomer.CustomerId.ToString();
+            txtCustomerName.Text = CustomerBook.ThisCustomer.CustomerName;
+            txtCustomerDOB.Text = CustomerBook.ThisCustomer.CustomerDOB.ToString();
+            txtCustomerEmailAddress.Text = CustomerBook.ThisCustomer.CustomerEmailAddress;
+            txtCustomerAddress.Text = CustomerBook.ThisCustomer.CustomerAddress;
+            chkMember.Checked = CustomerBook.ThisCustomer.Member;
+
+        }
+
+
     }
 
     protected void btnOK_Click(object sender, EventArgs e)
@@ -40,7 +58,8 @@ public partial class _1_DataEntry : System.Web.UI.Page
         Error = ACustomer.Valid(CustomerName, CustomerDOB, CustomerEmailAddress, CustomerAddress);
         if (Error == "")
         {
-
+            //capture the customerId
+            ACustomer.CustomerId = CustomerId;
             //capture the customer name
             ACustomer.CustomerName = CustomerName;
             //capture the customer email address
@@ -52,12 +71,28 @@ public partial class _1_DataEntry : System.Web.UI.Page
             //capture the member
             ACustomer.Member = chkMember.Checked;
             clsCustomerCollection CustomerList = new clsCustomerCollection();
-            //set the this address property
-            CustomerList.ThisCustomer = ACustomer;
-            //add the new record
-            CustomerList.Add();
+
+            //if this is a new record i.e CustomerId = -1 then add the data
+            if (CustomerId == -1)
+            {
+                //set the this address property
+                CustomerList.ThisCustomer = ACustomer;
+                //add the new record
+                CustomerList.Add();
+            }
+            //otherwise it must be an update
+            else
+            {
+                //find the record to update
+                CustomerList.ThisCustomer.Find(CustomerId);
+                //set the this address property
+                CustomerList.ThisCustomer = ACustomer;
+                //add the new record
+                CustomerList.Update();
+            }
             //navigate to the list page
             Response.Redirect("CustomersList.aspx");
+
         }
         else
         {
