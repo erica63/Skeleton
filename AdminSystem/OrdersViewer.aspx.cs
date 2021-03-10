@@ -17,8 +17,8 @@ public partial class _1Viewer : System.Web.UI.Page
         //Display the order ID for this entry
         Response.Write(AnOrder.OrderId);
         Response.Write(AnOrder.DateAdded);
-        Response.Write(AnOrder.TotalPrice);
+        Response.Write(AnOrder.ShippingAddress);
         Response.Write(AnOrder.Description);
-        Response.Write(AnOrder.Rating);
+        Response.Write(AnOrder.OrderQuantity);
     }
 }
