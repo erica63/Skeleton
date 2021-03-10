@@ -52,13 +52,14 @@ public partial class _1_List : System.Web.UI.Page
             CustomerId = Convert.ToInt32(lstCustomerList.SelectedValue);
             Session["CustomerId"] = CustomerId;
             //redirect to the edit page
-            Response.Redirect("ACustomer.aspx");
+            Response.Redirect("CustomersDataEntry.aspx");
         }
         else //if no record has been selected
         {
             //display an error
             //lblError.Text = "PLease select a record to delete from the list";
-
+            ((Label)btnEdit.FindControl("lblError")).Text = "PLease select a record to delete from the list";
+            
         }
     }
 }
