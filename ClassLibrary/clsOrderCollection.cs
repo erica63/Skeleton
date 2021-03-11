@@ -8,7 +8,14 @@ namespace ClassLibrary
 
         public clsOrderCollection()
         {
-            //Var for the index
+
+            //Private data member for the list
+            List<clsOrder> mOrderList = new List<clsOrder>();
+            //Private data member thisOrder
+            clsOrder mThisOrder = new clsOrder();
+
+
+            /** //Var for the index
             Int32 Index = 0;
             //Var to store the record count
             Int32 RecordCount = 0;
@@ -34,7 +41,7 @@ namespace ClassLibrary
                 mOrderList.Add(AnOrder);
                 //Point at the next record
                 Index++;
-            }
+            } */
 
             /** Old code WK 23 - Creating the Collection Class Properties Middle Layer
             //Create the items of the test data
@@ -59,12 +66,8 @@ namespace ClassLibrary
             TestItem.DateAdded = DateTime.Parse("10/01/2021");
             //Add the item to the test list
             mOrderList.Add(TestItem);*/
-        }
-        
-        
-        
-        //Private data member for the list
-        List<clsOrder> mOrderList = new List<clsOrder>();
+
+
         public List<clsOrder> OrderList
         {
             get
@@ -91,7 +94,27 @@ namespace ClassLibrary
                
             }
         }
-        public object ThisOrder { get; set; }
 
+        //Public property for ThisOrder
+        public clsOrder ThisOrder
+        {
+            get
+            {
+                //Return the private data
+                return mThisOrder;
+            }
+            set
+            {
+                //Set the private data
+                mThisOrder = value;
+            }
+        }
+
+        public int Add()
+        {
+            //Adds a new record to the 
+            throw new NotImplementedException();
+        }
     }
+}
 }
