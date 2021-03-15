@@ -291,7 +291,7 @@ namespace Testing6
             //invoke the method
             Error = StaffMember.Valid(StaffID, StaffName, StaffEmail, StaffDOB, Employer, StaffSalary);
             //test to see that the result is correct
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
 
         [TestMethod]
@@ -306,7 +306,7 @@ namespace Testing6
             //invoke the method
             Error = StaffMember.Valid(StaffID, StaffName, StaffEmail, StaffDOB, Employer, StaffSalary);
             //test to see that the result is correct
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
 
         [TestMethod]
@@ -321,7 +321,7 @@ namespace Testing6
             //invoke the method
             Error = StaffMember.Valid(StaffID, StaffName, StaffEmail, StaffDOB, Employer, StaffSalary);
             //test to see that the result is correct
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
 
         [TestMethod]
@@ -336,7 +336,7 @@ namespace Testing6
             //invoke the method
             Error = StaffMember.Valid(StaffID, StaffName, StaffEmail, StaffDOB, Employer, StaffSalary);
             //test to see that the result is correct
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
 
         [TestMethod]
@@ -351,7 +351,7 @@ namespace Testing6
             //invoke the method
             Error = StaffMember.Valid(StaffID, StaffName, StaffEmail, StaffDOB, Employer, StaffSalary);
             //test to see that the result is correct
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
 
         [TestMethod]
@@ -442,7 +442,7 @@ namespace Testing6
             //invoke the method
             Error = StaffMember.Valid(StaffID, StaffName, StaffEmail, StaffDOB, Employer, StaffSalary);
             //test to see that the result is correct
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
 
         [TestMethod]
@@ -531,7 +531,7 @@ namespace Testing6
             //invoke the method
             Error = StaffMember.Valid(StaffID, StaffName, StaffEmail, StaffDOB, Employer, StaffSalary);
             //test to see that the result is correct
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
 
         [TestMethod]
@@ -546,7 +546,7 @@ namespace Testing6
             //invoke the method
             Error = StaffMember.Valid(StaffID, StaffName, StaffEmail, StaffDOB, Employer, StaffSalary);
             //test to see that the result is correct
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
 
         [TestMethod]
@@ -561,7 +561,7 @@ namespace Testing6
             //invoke the method
             Error = StaffMember.Valid(StaffID, StaffName, StaffEmail, StaffDOB, Employer, StaffSalary);
             //test to see that the result is correct
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
 
         [TestMethod]
@@ -576,7 +576,7 @@ namespace Testing6
             //invoke the method
             Error = StaffMember.Valid(StaffID, StaffName, StaffEmail, StaffDOB, Employer, StaffSalary);
             //test to see that the result is correct
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
 
         [TestMethod]
@@ -606,7 +606,7 @@ namespace Testing6
             //invoke the method
             Error = StaffMember.Valid(StaffID, StaffName, StaffEmail, StaffDOB, Employer, StaffSalary);
             //test to see that the result is correct
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
          
 
