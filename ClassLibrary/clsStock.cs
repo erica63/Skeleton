@@ -122,18 +122,32 @@ namespace ClassLibrary
 
         public bool Find(int ItemId)
         {
-            //set the private data members to the test value
-            mItemId = 21;
-            mItemName = "Test ItemName";
-            mItemAvailable = true;
-            mDateItemAdded = Convert.ToDateTime("16/03/2021");
-            mItemSize = Convert.ToDecimal("10.5");
-            mStockLevel = "123";
+            //create an instance of the data connection
+            clsDataConnection DB = new clsDataConnection();
+            //add the parameter for the address no to search for
+            DB.AddParameter("@ItemId", ItemId);
+            //execute the stored procedure
+            DB.Execute("sproc_tblStock_FilterByItemId");
+            //if one record is found (there should be either one or zero!)
+            if (DB.Count == 1)
+            {
+                //copy the data from the database to the private data members
+                mItemId = Convert.ToInt32(DB.DataTable.Rows[0]["ItemId"]);
+                mItemName = Convert.ToString(DB.DataTable.Rows[0]["ItemName"]);
+                mItemAvailable = Convert.ToBoolean(DB.DataTable.Rows[0]["Item Available"]);
+                mDateItemAdded = Convert.ToDateTime(DB.DataTable.Rows[0]["DateItemAdded"]);
+                mItemSize = Convert.ToDecimal(DB.DataTable.Rows[0]["ItemSize"]);
+                mStockLevel = Convert.ToInt32(DB.DataTable.Rows[0]["StockLevel"]);
+                //return that everything worked OK
+                return true;
 
-            //always return true
-            return true;
-
-
+            }
+            //if no record was found
+            else
+            {
+                //return false indicating problem
+                return false;
+            }
         }
     }
 }
