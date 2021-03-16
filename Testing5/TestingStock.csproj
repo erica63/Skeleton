@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\MSTest.TestAdapter.2.2.1\build\net45\MSTest.TestAdapter.props" Condition="Exists('..\packages\MSTest.TestAdapter.2.2.1\build\net45\MSTest.TestAdapter.props')" />
+  <Import Project="..\packages\MSTest.TestAdapter.2.2.2\build\net45\MSTest.TestAdapter.props" Condition="Exists('..\packages\MSTest.TestAdapter.2.2.2\build\net45\MSTest.TestAdapter.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -39,8 +39,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.TestPlatform.AdapterUtilities, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.TestPlatform.AdapterUtilities.16.9.1\lib\netstandard2.0\Microsoft.TestPlatform.AdapterUtilities.dll</HintPath>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=3.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\MSTest.TestFramework.2.1.2\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.dll</HintPath>
@@ -48,70 +48,40 @@
     <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\MSTest.TestFramework.2.1.2\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Win32.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Win32.Primitives.4.3.0\lib\net46\Microsoft.Win32.Primitives.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.AppContext, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.AppContext.4.3.0\lib\net46\System.AppContext.dll</HintPath>
-    </Reference>
     <Reference Include="System.ComponentModel.Composition" />
-    <Reference Include="System.Console, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Console.4.3.0\lib\net46\System.Console.dll</HintPath>
-    </Reference>
     <Reference Include="System.Core" />
-    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.3.0\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Globalization.Calendars, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Globalization.Calendars.4.3.0\lib\net46\System.Globalization.Calendars.dll</HintPath>
-    </Reference>
-    <Reference Include="System.IO.Compression, Version=4.1.2.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.IO.Compression.4.3.0\lib\net46\System.IO.Compression.dll</HintPath>
-    </Reference>
     <Reference Include="System.IO.Compression.FileSystem" />
-    <Reference Include="System.IO.Compression.ZipFile, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.IO.Compression.ZipFile.4.3.0\lib\net46\System.IO.Compression.ZipFile.dll</HintPath>
-    </Reference>
-    <Reference Include="System.IO.FileSystem, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.IO.FileSystem.4.3.0\lib\net46\System.IO.FileSystem.dll</HintPath>
-    </Reference>
-    <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.IO.FileSystem.Primitives.4.3.0\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Net.Http, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Net.Http.4.3.0\lib\net46\System.Net.Http.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Net.Sockets, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Net.Sockets.4.3.0\lib\net46\System.Net.Sockets.dll</HintPath>
-    </Reference>
     <Reference Include="System.Numerics" />
-    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net461\System.Security.Cryptography.Algorithms.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
-    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Xml.ReaderWriter, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Xml.ReaderWriter.4.3.0\lib\net46\System.Xml.ReaderWriter.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="tstStock.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
+    <None Include="bin\Debug\ClassLibrary.dll.config" />
+    <None Include="bin\Debug\roslyn\csc.exe.config" />
+    <None Include="bin\Debug\roslyn\csc.rsp" />
+    <None Include="bin\Debug\roslyn\csi.exe.config" />
+    <None Include="bin\Debug\roslyn\csi.rsp" />
+    <None Include="bin\Debug\roslyn\Microsoft.CSharp.Core.targets" />
+    <None Include="bin\Debug\roslyn\Microsoft.Managed.Core.targets" />
+    <None Include="bin\Debug\roslyn\Microsoft.VisualBasic.Core.targets" />
+    <None Include="bin\Debug\roslyn\vbc.exe.config" />
+    <None Include="bin\Debug\roslyn\vbc.rsp" />
+    <None Include="bin\Debug\roslyn\VBCSCompiler.exe.config" />
+    <None Include="bin\Debug\Testing5.dll.config" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="obj\Debug\TestingStock.csproj.CopyComplete" />
+    <None Include="obj\Debug\TestingStock.csproj.CoreCompileInputs.cache" />
+    <None Include="obj\Debug\TestingStock.csprojAssemblyReference.cache" />
+    <None Include="obj\Release\TestingStock.csproj.CoreCompileInputs.cache" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -120,14 +90,80 @@
       <Name>ClassLibrary</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\ClassLibrary.dll" />
+    <Content Include="bin\Debug\ClassLibrary.pdb" />
+    <Content Include="bin\Debug\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" />
+    <Content Include="bin\Debug\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml" />
+    <Content Include="bin\Debug\Microsoft.TestPlatform.AdapterUtilities.dll" />
+    <Content Include="bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll" />
+    <Content Include="bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll" />
+    <Content Include="bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll" />
+    <Content Include="bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll" />
+    <Content Include="bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll" />
+    <Content Include="bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="bin\Debug\roslyn\csc.exe" />
+    <Content Include="bin\Debug\roslyn\csi.exe" />
+    <Content Include="bin\Debug\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll" />
+    <Content Include="bin\Debug\roslyn\Microsoft.CodeAnalysis.CSharp.dll" />
+    <Content Include="bin\Debug\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll" />
+    <Content Include="bin\Debug\roslyn\Microsoft.CodeAnalysis.dll" />
+    <Content Include="bin\Debug\roslyn\Microsoft.CodeAnalysis.Scripting.dll" />
+    <Content Include="bin\Debug\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll" />
+    <Content Include="bin\Debug\roslyn\Microsoft.DiaSymReader.Native.amd64.dll" />
+    <Content Include="bin\Debug\roslyn\Microsoft.DiaSymReader.Native.x86.dll" />
+    <Content Include="bin\Debug\roslyn\Microsoft.Win32.Primitives.dll" />
+    <Content Include="bin\Debug\roslyn\System.AppContext.dll" />
+    <Content Include="bin\Debug\roslyn\System.Collections.Immutable.dll" />
+    <Content Include="bin\Debug\roslyn\System.Console.dll" />
+    <Content Include="bin\Debug\roslyn\System.Diagnostics.DiagnosticSource.dll" />
+    <Content Include="bin\Debug\roslyn\System.Diagnostics.FileVersionInfo.dll" />
+    <Content Include="bin\Debug\roslyn\System.Diagnostics.StackTrace.dll" />
+    <Content Include="bin\Debug\roslyn\System.Globalization.Calendars.dll" />
+    <Content Include="bin\Debug\roslyn\System.IO.Compression.dll" />
+    <Content Include="bin\Debug\roslyn\System.IO.Compression.ZipFile.dll" />
+    <Content Include="bin\Debug\roslyn\System.IO.FileSystem.dll" />
+    <Content Include="bin\Debug\roslyn\System.IO.FileSystem.Primitives.dll" />
+    <Content Include="bin\Debug\roslyn\System.Net.Http.dll" />
+    <Content Include="bin\Debug\roslyn\System.Net.Sockets.dll" />
+    <Content Include="bin\Debug\roslyn\System.Reflection.Metadata.dll" />
+    <Content Include="bin\Debug\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll" />
+    <Content Include="bin\Debug\roslyn\System.Security.Cryptography.Algorithms.dll" />
+    <Content Include="bin\Debug\roslyn\System.Security.Cryptography.Encoding.dll" />
+    <Content Include="bin\Debug\roslyn\System.Security.Cryptography.Primitives.dll" />
+    <Content Include="bin\Debug\roslyn\System.Security.Cryptography.X509Certificates.dll" />
+    <Content Include="bin\Debug\roslyn\System.Text.Encoding.CodePages.dll" />
+    <Content Include="bin\Debug\roslyn\System.Threading.Tasks.Extensions.dll" />
+    <Content Include="bin\Debug\roslyn\System.ValueTuple.dll" />
+    <Content Include="bin\Debug\roslyn\System.Xml.ReaderWriter.dll" />
+    <Content Include="bin\Debug\roslyn\System.Xml.XmlDocument.dll" />
+    <Content Include="bin\Debug\roslyn\System.Xml.XPath.dll" />
+    <Content Include="bin\Debug\roslyn\System.Xml.XPath.XDocument.dll" />
+    <Content Include="bin\Debug\roslyn\vbc.exe" />
+    <Content Include="bin\Debug\roslyn\VBCSCompiler.exe" />
+    <Content Include="bin\Debug\Testing5.dll" />
+    <Content Include="bin\Debug\Testing5.pdb" />
+    <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" />
+    <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml" />
+    <Content Include="obj\Debug\Testing5.dll" />
+    <Content Include="obj\Debug\Testing5.pdb" />
+    <Content Include="obj\Debug\TestingStock.csproj.FileListAbsolute.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Release\" />
+    <Folder Include="obj\Debug\TempPE\" />
+  </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\MSTest.TestAdapter.2.2.1\build\net45\MSTest.TestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MSTest.TestAdapter.2.2.1\build\net45\MSTest.TestAdapter.props'))" />
-    <Error Condition="!Exists('..\packages\MSTest.TestAdapter.2.2.1\build\net45\MSTest.TestAdapter.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MSTest.TestAdapter.2.2.1\build\net45\MSTest.TestAdapter.targets'))" />
+    <Error Condition="!Exists('..\packages\MSTest.TestAdapter.2.2.2\build\net45\MSTest.TestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MSTest.TestAdapter.2.2.2\build\net45\MSTest.TestAdapter.props'))" />
+    <Error Condition="!Exists('..\packages\MSTest.TestAdapter.2.2.2\build\net45\MSTest.TestAdapter.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MSTest.TestAdapter.2.2.2\build\net45\MSTest.TestAdapter.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets'))" />
   </Target>
-  <Import Project="..\packages\MSTest.TestAdapter.2.2.1\build\net45\MSTest.TestAdapter.targets" Condition="Exists('..\packages\MSTest.TestAdapter.2.2.1\build\net45\MSTest.TestAdapter.targets')" />
+  <Import Project="..\packages\MSTest.TestAdapter.2.2.2\build\net45\MSTest.TestAdapter.targets" Condition="Exists('..\packages\MSTest.TestAdapter.2.2.2\build\net45\MSTest.TestAdapter.targets')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" />
 </Project>
