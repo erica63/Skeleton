@@ -12,7 +12,7 @@
         </div>
         <p>
             <asp:Label ID="lblOrderId" runat="server" Text="Order ID" width="118px"></asp:Label>
-            <asp:TextBox ID="txtOrderId" runat="server" TextMode="Number" OnTextChanged="txtOrderId_TextChanged"></asp:TextBox>
+            <asp:TextBox ID="txtOrderId" runat="server" TextMode="Number"></asp:TextBox>
         </p>
         <asp:Label ID="lblOrderDate" runat="server" Text="Order Date" width="118px"></asp:Label>
         <asp:TextBox ID="txtOrderDate" runat="server"></asp:TextBox>

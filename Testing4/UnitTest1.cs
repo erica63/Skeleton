@@ -16,6 +16,8 @@ namespace tstOrderClass
         {
             //Create an instance of the class we want to create
             clsOrderCollection AllOrders = new clsOrderCollection();
+            //test to see that it exists
+            Assert.IsNotNull(AllOrders);
         }
 
         [TestMethod]
