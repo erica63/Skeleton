@@ -22,9 +22,9 @@ public partial class _Default : System.Web.UI.Page
     void DisplayOrders()
     {
         //Create an instance of the Shipping Address Collection
-        clsOrderCollection Orders = new clsOrderCollection();
+        clsOrderCollection Addresses = new clsOrderCollection();
         //Set the data source to the list of Shipping Address in the collection
-        lstOrders.DataSource = Orders.OrderList;
+        lstOrders.DataSource = Addresses.OrderList;
         //Set the name of the primary key
         lstOrders.DataValueField = "OrderId";
         //Set the data field to display
@@ -32,4 +32,15 @@ public partial class _Default : System.Web.UI.Page
         //Bind the data to the list
         lstOrders.DataBind();
     }
+
+    //Event handler for the add button
+    /**protected void btnAdd_Click(object sender, EventArgs e)
+    {
+        //Store -1 into the session object to indicate this is a new record
+        Session["ShippingAddress"] = -1;
+        //Redirect to the data entry page
+        Response.Redirect("AnOrder.aspx");
+    }*/
+
+
 }

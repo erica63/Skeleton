@@ -19,7 +19,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         clsOrder AnOrder = new clsOrder();
 
         //Capture the order id, do I remove this?
-        AnOrder.OrderId = int.Parse(txtOrderId.Text);
+        //AnOrder.OrderId = int.Parse(txtOrderId.Text);
 
         //Capture order date
         String DateAdded = txtOrderDate.Text;
@@ -48,15 +48,24 @@ public partial class _1_DataEntry : System.Web.UI.Page
             AnOrder.ShippingAddress = ShippingAddress;
             //Capture OrderQuantity
             AnOrder.OrderQuantity = OrderQuantity;
-            
+            //Capture OrderDelivery (Boolean)
+            AnOrder.Delivery = chkOrderDelivery.Checked;
 
 
+            //Create a new instance of the order collection
+            clsOrderCollection OrdersList = new clsOrderCollection();
+            //Set the ThisOrder property
+            OrdersList.ThisOrder = AnOrder;
+            //Add the new record
+            OrdersList.Add();
+            //Redirect back to the listpage
+            Response.Redirect("OrdersList.aspx");
 
             //Store the address in the session object
-            Session["AnOrder"] = AnOrder;
+            //Session["AnOrder"] = AnOrder;
             //Navigate to the viewer page
             //Response.Redirect("OrdersViewer.aspx");
-            Response.Write("OrdersViewer.aspx");
+            //Response.Write("OrdersViewer.aspx");
         }
         else
         {
@@ -81,17 +90,12 @@ public partial class _1_DataEntry : System.Web.UI.Page
         if (Found == true)
         {
             //Display the values of the properties in the form
-            txtOrderId.Text = AnOrder.OrderId.ToString();
+            //txtOrderId.Text = AnOrder.OrderId.ToString();
             txtOrderDate.Text = AnOrder.DateAdded.ToString();
             txtShippingAddress.Text = AnOrder.ShippingAddress.ToString();
             txtOrderDesc.Text = AnOrder.Description;
             txtOrderQuantity.Text = AnOrder.OrderQuantity.ToString();
 
         }
-    }
-
-    protected void txtOrderId_TextChanged(object sender, EventArgs e)
-    {
-
     }
 }
