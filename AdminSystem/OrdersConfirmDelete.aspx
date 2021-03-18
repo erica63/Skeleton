@@ -9,7 +9,13 @@
 <body>
     <form id="form1" runat="server">
         <div>
+            Are you sure you want to delete this record?<br />
+            <asp:Button ID="btnYes" runat="server" Text="Yes" OnClick="btnYes_Click" />
+        &nbsp;
+            <asp:Button ID="btnNo" runat="server" Text="No" />
         </div>
+        <p>
+            &nbsp;</p>
     </form>
 </body>
 </html>
