@@ -47,18 +47,44 @@ namespace tstOrderClass
             Assert.AreEqual(AllOrders.OrderList, TestList);
 
         }
+        /**
+                [TestMethod]
+                public void CountPropertyOK()
+                {
+                    //Create an instance of the class we want to create
+                    clsOrderCollection AllOrders = new clsOrderCollection();
+                    //Create some test data to assign to the property
+                    Int32 SomeCount = 0;
+                    //Assign the data to the property
+                    AllOrders.Count = SomeCount;
+                    //Test to see that the two values are the same
+                    Assert.AreEqual(AllOrders.Count, SomeCount);
+                }*/
 
         [TestMethod]
-        public void CountPropertyOK()
+        public void ListAndCountOK()
         {
             //Create an instance of the class we want to create
             clsOrderCollection AllOrders = new clsOrderCollection();
             //Create some test data to assign to the property
-            Int32 SomeCount = 2;
+            //In this case the data needs to be a list of objects
+            List<clsOrder> TestList = new List<clsOrder>();
+            //Add an item to the list
+            //Create the item of test data
+            clsOrder TestItem = new clsOrder();
+            //Set its properties
+            TestItem.OrderId = 1;
+            TestItem.DateAdded = DateTime.Now.Date;
+            TestItem.ShippingAddress = "22 New Park St";
+            TestItem.Delivery = true;
+            TestItem.Description = "ADIDAS";
+            TestItem.OrderQuantity = 1;
+            //Add the item to the test list
+            TestList.Add(TestItem);
             //Assign the data to the property
-            AllOrders.Count = SomeCount;
+            AllOrders.OrderList = TestList;
             //Test to see that the two values are the same
-            Assert.AreEqual(AllOrders.Count, SomeCount);
+            Assert.AreEqual(AllOrders.Count, TestList.Count);
         }
 
         [TestMethod]
@@ -79,6 +105,7 @@ namespace tstOrderClass
             AllOrders.ThisOrder = TestOrder;
             //Test to see that the two values are the same
             Assert.AreEqual(AllOrders.ThisOrder, TestOrder);
+
         }
 
         /**
@@ -108,14 +135,15 @@ namespace tstOrderClass
             Assert.AreEqual(AllOrders.Count, TestList.Count);
         }*/
 
-        [TestMethod]
-        public void TwoRecordsPreset()
-        {
-            //Create an instance of the class we want to create
-            clsOrderCollection AllOrders = new clsOrderCollection();
-            //Test to see that the two values are the same
-            Assert.AreEqual(AllOrders, 2);
-        }
+        /**
+           [TestMethod]
+           public void TwoRecordsPreset()
+           {
+               //Create an instance of the class we want to create
+               clsOrderCollection AllOrders = new clsOrderCollection();
+               //Test to see that the two values are the same
+               Assert.AreEqual(AllOrders, 2);
+           }*/
 
         [TestMethod]
         public void AddMethodOK()
@@ -181,5 +209,94 @@ namespace tstOrderClass
             //Test to see ThisOrder matches the test data
             Assert.AreEqual(AllOrders.ThisOrder, TestItem);
         }
+
+        [TestMethod]
+        public void DeleteMethodOK()
+        {
+            //Create an instance of the class we want to create
+            clsOrderCollection AllOrders = new clsOrderCollection();
+            //Create the item of test data
+            clsOrder TestItem = new clsOrder();
+            //Var to store the primary key
+            Int32 PrimaryKey = 0;
+            //Set its properties
+            TestItem.Delivery = true;
+            TestItem.DateAdded = DateTime.Now.Date;
+            TestItem.ShippingAddress = "18 Lala St";
+            TestItem.Description = "FILA";
+            TestItem.OrderQuantity = 1;
+            //Set ThisOrder to the test data
+            AllOrders.ThisOrder = TestItem;
+            //Add the record
+            PrimaryKey = AllOrders.Add();
+            //Set the primary key of the test data
+            TestItem.OrderId = PrimaryKey;
+            //Find the record
+            AllOrders.ThisOrder.Find(PrimaryKey);
+            //Delete the record
+            AllOrders.Delete();
+            //Now find the record
+            Boolean Found = AllOrders.ThisOrder.Find(PrimaryKey);
+            //Test to see that the record was not found
+            Assert.IsFalse(Found);
+        }
+
+        [TestMethod]
+        public void ReportByDescriptionMethodOK()
+        {
+            //Create an instance of the class containing unfiltered results
+            clsOrderCollection AllOrders = new clsOrderCollection();
+            //Create an instance of the filtered data
+            clsOrderCollection FilteredOrders = new clsOrderCollection();
+            //Apply a blank string (should return all records)
+            FilteredOrders.ReportByDescription("");
+            //Test to see that the two values are the same
+            Assert.AreEqual(AllOrders.Count, FilteredOrders.Count);
+        }
+
+        [TestMethod]
+        public void ReportByDescriptionNoneFound()
+        {
+            //Create an instance of the filtered data
+            clsOrderCollection FilteredOrders = new clsOrderCollection();
+            //Apply a description that doesn't exist
+            FilteredOrders.ReportByDescription("xxxx");
+            //Test to see that there are no records
+            Assert.AreEqual(0, FilteredOrders.Count);
+        }
+
+        [TestMethod]
+        public void ReportByDescriptionTestDataFound()
+        {
+            //Create an instance of the filtered data
+            clsOrderCollection FilteredOrders = new clsOrderCollection();
+            //Var to store outcome
+            Boolean OK = true;
+            //Apply a description that doesn't exist
+            FilteredOrders.ReportByDescription("yyy");
+            //Check that the correct number of records are found
+            if (FilteredOrders.Count == 2)
+            {
+                //Check that the first record is ID 43
+                if (FilteredOrders.OrderList[0].OrderId != 43)
+                {
+                    OK = false;
+                }
+                //Check that the first record is ID 44
+                if (FilteredOrders.OrderList[1].OrderId != 44)
+                {
+                    OK = false;
+                }
+            }
+            else
+            {
+                OK = false;
+            }
+            //Test to see that there are no records
+            Assert.IsTrue(OK);
+        }
     }
 }
+
+    
+
