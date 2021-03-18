@@ -690,7 +690,7 @@ namespace Testing4
             Assert.AreNotEqual(Error, "");
         }*/
 
-        [TestMethod]
+        /**[TestMethod]
         public void QuantityInvalidData()
         {
             //Create an instance of the class we want to create
@@ -703,7 +703,7 @@ namespace Testing4
             Error = AnOrder.Valid(DateAdded, Description, ShippingAddress, Quantity);
             //Test to see that the result is correct
             Assert.AreNotEqual(Error, "");
-        }
+        }*/
 
     }
 }
