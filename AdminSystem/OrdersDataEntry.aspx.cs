@@ -8,9 +8,34 @@ using ClassLibrary;
 
 public partial class _1_DataEntry : System.Web.UI.Page
 {
+    //Variable to store the primary key with page level scope
+    Int32 OrderId;
     protected void Page_Load(object sender, EventArgs e)
     {
-        
+        //Get the number of the order to be processed
+        OrderId = Convert.ToInt32(Session["OrderId"]);
+        if (IsPostBack == false)
+        {
+            //If this is not a new record
+            if (OrderId != 1)
+            {
+                //Display the current data for the record
+                DisplayOrders();
+            }
+        }
+    }
+    void DisplayOrders()
+    {
+        //Create an instance of the orders
+        clsOrderCollection Orders = new clsOrderCollection();
+        //Find the record to update
+        Orders.ThisOrder.Find(OrderId);
+        //Display the data for this record
+        txtOrderId.Text = Orders.ThisOrder.OrderId.ToString();
+        txtOrderDate.Text = Orders.ThisOrder.DateAdded.ToString();
+        txtOrderDesc.Text = Orders.ThisOrder.Description.ToString();
+        txtOrderQuantity.Text = Orders.ThisOrder.OrderQuantity.ToString();
+        txtShippingAddress.Text = Orders.ThisOrder.ShippingAddress.ToString();
     }
 
     protected void btnOk_Click(object sender, EventArgs e)
@@ -18,8 +43,8 @@ public partial class _1_DataEntry : System.Web.UI.Page
         //Create a new instance of clsOrder
         clsOrder AnOrder = new clsOrder();
 
-        //Capture the order id, do I remove this?
-        //AnOrder.OrderId = int.Parse(txtOrderId.Text);
+        //Capture the order id
+        AnOrder.OrderId = int.Parse(txtOrderId.Text);
 
         //Capture order date
         String DateAdded = txtOrderDate.Text;
@@ -40,6 +65,8 @@ public partial class _1_DataEntry : System.Web.UI.Page
         Error = AnOrder.Valid(DateAdded, Description, ShippingAddress, OrderQuantity);
         if (Error == "")
         {
+            //Capture the Order Id
+            AnOrder.OrderId = OrderId;
             //Capture Description
             AnOrder.Description = Description;
             //Capture Date
@@ -51,28 +78,38 @@ public partial class _1_DataEntry : System.Web.UI.Page
             //Capture OrderDelivery (Boolean)
             AnOrder.Delivery = chkOrderDelivery.Checked;
 
-
             //Create a new instance of the order collection
             clsOrderCollection OrdersList = new clsOrderCollection();
-            //Set the ThisOrder property
-            OrdersList.ThisOrder = AnOrder;
-            //Add the new record
-            OrdersList.Add();
+
+            //If this is a new record i.e OrderId = -1 then add the data
+            if (OrderId == -1)
+            {
+                //Set the ThisOrder property
+                OrdersList.ThisOrder = AnOrder;
+                //Add the new record
+                OrdersList.Add();
+            }
+            //Otherwise it must be an update
+            else
+            {
+                //Find the record to update
+                OrdersList.ThisOrder.Find(OrderId);
+                //Set the ThisOrder property
+                OrdersList.ThisOrder = AnOrder;
+                //Update the record
+                OrdersList.Update();
+            }
             //Redirect back to the listpage
             Response.Redirect("OrdersList.aspx");
-
-            //Store the address in the session object
-            //Session["AnOrder"] = AnOrder;
-            //Navigate to the viewer page
-            //Response.Redirect("OrdersViewer.aspx");
-            //Response.Write("OrdersViewer.aspx");
         }
         else
         {
             //Display the error message
             lblError.Text = Error;
+
         }
-    }
+
+        }
 
     protected void btnFind_Click(object sender, EventArgs e)
     {

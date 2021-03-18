@@ -34,13 +34,36 @@ public partial class _Default : System.Web.UI.Page
     }
 
     //Event handler for the add button
-    /**protected void btnAdd_Click(object sender, EventArgs e)
+    protected void btnAdd_Click(object sender, EventArgs e)
     {
         //Store -1 into the session object to indicate this is a new record
-        Session["ShippingAddress"] = -1;
+        Session["OrderId"] = -1;
         //Redirect to the data entry page
-        Response.Redirect("AnOrder.aspx");
-    }*/
+        Response.Redirect("OrdersDataEntry.aspx");
+    }
 
+
+
+    protected void btnEdit_Click(object sender, EventArgs e)
+    {
+        //Var to store the primary key value of the record to be edited
+        Int32 OrderId;
+        //If a record has been selected from the list
+        if (lstOrders.SelectedIndex != -1)
+        {
+            //Get the primary key value of the record to edit
+            OrderId = Convert.ToInt32(lstOrders.SelectedValue);
+            //Store the data in the session object
+            Session["OrderId"] = OrderId;
+            //Redirect to the edit page
+            Response.Redirect("OrdersDataEntry.aspx");
+        }
+        else //If no record has been selected 
+        {
+            //Display an error
+            lblError.Text = "Please select a record to delete from the list";
+
+        }
+    }
 
 }
