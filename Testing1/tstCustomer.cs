@@ -614,7 +614,7 @@ namespace Testing1
             //create a variable to store the test date data
             DateTime TestDate;
             //set the date of the customer DOB
-            TestDate = DateTime.Parse("19/7/2000");
+            TestDate = DateTime.Parse("19/7/2000").AddYears(-100);
             //change the date to whatever the date is less 100 years
             TestDate = TestDate.AddYears(-50);
             //convert the date variable to a string variable
@@ -635,7 +635,7 @@ namespace Testing1
             //create a variable to store the test date data
             DateTime TestDate;
             //set the date of the customer DOB
-            TestDate = DateTime.Parse("19/7/2000");
+            TestDate = DateTime.Parse("19/7/2000").AddYears(-101);
             //change the date to whatever the date is less 100 years
             TestDate = TestDate.AddYears(-1);
             //convert the date variable to a string variable
@@ -656,7 +656,7 @@ namespace Testing1
             //create a variable to store the test date data
             DateTime TestDate;
             //set the date of the customer DOB
-            TestDate = DateTime.Parse("19/7/2000");
+            TestDate = DateTime.Parse("19/7/2000").AddYears(-100);
             //convert the date variable to a string variable
             string CustomerDOB = TestDate.ToString();
             //invoke the method
@@ -675,7 +675,7 @@ namespace Testing1
             //create a variable to store the test date data
             DateTime TestDate;
             //set the date of the customer DOB
-            TestDate = DateTime.Parse("19/7/2000");
+            TestDate = DateTime.Parse("19/7/2000").AddYears(99);
             //change the date to whatever the date is less 100 years
             TestDate = TestDate.AddYears(1);
             //convert the date variable to a string variable
@@ -696,7 +696,7 @@ namespace Testing1
             //create a variable to store the test date data
             DateTime TestDate;
             //set the date of the customer DOB
-            TestDate = DateTime.Parse("19/7/2000");
+            TestDate = DateTime.Parse("19/7/2000").AddYears(50);
             //change the date to whatever the date is less 100 years
             TestDate = TestDate.AddYears(100);
             //convert the date variable to a string variable
