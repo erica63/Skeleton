@@ -57,8 +57,8 @@ public partial class _1_List : System.Web.UI.Page
         else //if no record has been selected
         {
             //display an error
-            //lblError.Text = "PLease select a record to delete from the list";
-            ((Label)btnEdit.FindControl("lblError")).Text = "PLease select a record to delete from the list";
+            lblError.Text = "PLease select a record to delete from the list";
+            
             
         }
     }
@@ -82,5 +82,35 @@ public partial class _1_List : System.Web.UI.Page
             //display an error
             lblError.Text = "please select a record to delete from the list";
         }
+    }
+
+    protected void btnApply_Click(object sender, EventArgs e)
+    {
+        //create an instance of the address collection
+        clsCustomerCollection Customers = new clsCustomerCollection();
+        Customers.ReportByName(txtFilterName.Text);
+        lstCustomerList.DataSource = Customers.CustomerList;
+        //set the name of the primary key
+        lstCustomerList.DataValueField = "CustomerId";
+        //set the name of the field to display
+        lstCustomerList.DataTextField = "CustomerName";
+        //bind the data to the list
+        lstCustomerList.DataBind();
+    }
+
+    protected void btnClear_Click(object sender, EventArgs e)
+    {
+        //create an instance of the address collection
+        clsCustomerCollection Customers = new clsCustomerCollection();
+        Customers.ReportByName("");
+        //clear any existing filter to tidy up the interface 
+        txtFilterName.Text = "";
+        lstCustomerList.DataSource = Customers.CustomerList;
+        //set the name of the primary key
+        lstCustomerList.DataValueField = "CustomerId";
+        //set the name of the field to display
+        lstCustomerList.DataTextField = "CustomerName";
+        //bind the data to the list
+        lstCustomerList.DataBind();
     }
 }
