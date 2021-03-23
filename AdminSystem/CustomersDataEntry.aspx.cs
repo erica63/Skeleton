@@ -35,7 +35,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
             //display the data for this record
             txtCustomerId.Text = CustomerBook.ThisCustomer.CustomerId.ToString();
             txtCustomerName.Text = CustomerBook.ThisCustomer.CustomerName;
-            txtCustomerDOB.Text = CustomerBook.ThisCustomer.CustomerDOB.ToString();
+            txtCustomerDOB.Text = CustomerBook.ThisCustomer.CustomerDOB.ToShortDateString();
             txtCustomerEmailAddress.Text = CustomerBook.ThisCustomer.CustomerEmailAddress;
             txtCustomerAddress.Text = CustomerBook.ThisCustomer.CustomerAddress;
             chkMember.Checked = CustomerBook.ThisCustomer.Member;
@@ -122,7 +122,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         {
             //display the values of the properites in the form
             txtCustomerName.Text = ACustomer.CustomerName;
-            txtCustomerDOB.Text = ACustomer.CustomerDOB.ToString();
+            txtCustomerDOB.Text = ACustomer.CustomerDOB.ToShortDateString();
             txtCustomerEmailAddress.Text = ACustomer.CustomerEmailAddress;
             txtCustomerAddress.Text = ACustomer.CustomerAddress;
         }
