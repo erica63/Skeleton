@@ -15,24 +15,44 @@ public partial class _1_DataEntry : System.Web.UI.Page
 
     protected void btnOK_Click(object sender, EventArgs e)
     {
-        //create a new instance of clsStaff 
+        //create a new instance of clsSaff
         clsStaff StaffMember = new clsStaff();
-        //capture the staff ID
-        StaffMember.StaffID = int.Parse(txtStaffID.Text);
-        //capture Staff Name 
-        StaffMember.StaffName = txtStaffName.Text;
-        //capture Staff Date of Birth 
-        StaffMember.StaffDOB = DateTime.Parse(txtStaffDOB.Text);
-        //capture Staff Email address 
-        StaffMember.StaffEmailAddress = txtStaffEmail.Text;
-        //capture staff salary
-        StaffMember.StaffSalary = Decimal.Parse(txtStaffSalary.Text);
-        //capture Employer/employee
-       
-        //store the ID in the session object 
-        Session["StaffMember"] = StaffMember;
-        //navigate to the viewer page 
-        Response.Redirect("StaffsViewer.aspx");
+        //capture the Staff name
+        string StaffName = txtStaffName.Text;
+        string StaffDOB = txtStaffDOB.Text;
+        string StaffEmailAddress = txtStaffEmail.Text;
+        string StaffSalary = txtStaffSalary.Text;
+        string StaffID = txtStaffID.Text;
+        string Error = "";
+        //validate the data
+        Error = StaffMember.Valid(StaffName, StaffID, StaffEmailAddress, StaffDOB, StaffSalary);
+        if (Error == "")
+        {
+            //capture the StaffID
+            StaffMember.StaffID = int.Parse(txtStaffID.Text);
+            //capture the StaffName
+            StaffMember.StaffName = StaffName;
+            //capture the StaffEMail
+            StaffMember.StaffEmailAddress = StaffEmailAddress;
+            //capture the StaffDOB
+            StaffMember.StaffDOB = DateTime.Parse(txtStaffDOB.Text);
+            //capture the StaffSalary
+            StaffMember.StaffSalary = Decimal.Parse(txtStaffSalary.Text);
+            //capture the Staff
+            StaffMember.Employer = chkEmployerEmployee.Checked;
+            //store staff
+            clsStaffCollection StaffList = new clsStaffCollection();
+            //add new record
+            StaffList.Add();
+            //redirect back to the listpage 
+            Response.Redirect("StaffsList.aspx");
+        }
+        else
+        {
+            //display error message
+            lblError.Text = Error;
+        }
+
     }
 
     protected void btnFind_Click(object sender, EventArgs e)

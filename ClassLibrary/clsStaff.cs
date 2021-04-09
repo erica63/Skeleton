@@ -39,6 +39,50 @@ namespace ClassLibrary
             }
         }
 
+        public string Valid(string staffName, string staffID, string staffEmailAddress, string staffDOB, string staffSalary)
+        {
+            //create a string variable to store the error
+            String Error = "";
+            DateTime TestDOB;
+            //if the customer email address is blank
+            if (staffName.Length == 0)
+            {
+                Error = Error + "Staff Name cannot not be blank : ";
+            }
+
+            if (staffName.Length > 50)
+            {
+                Error = Error + "Staff Name must be less than 50 characters : ";
+            }
+
+            try
+            {
+                //copy the dateAdded value to the DateTemp variable
+                TestDOB = Convert.ToDateTime(staffDOB);
+                if (TestDOB < DateTime.Parse("01/01/1940"))
+                {
+                    //record the error
+                    Error = Error + "The date cannot be in the past : ";
+                }
+
+                if (TestDOB > DateTime.Parse("01/01/1940"))
+                {
+                    //record the error
+                    Error = Error + "The date cannot be in the future : ";
+                }
+            }
+            catch
+            {
+                //record the error
+                Error = Error + "The date was not a valid date : ";
+            }
+
+
+
+            //return any error messages
+            return Error;
+        }
+
         //private data for Staff DOB
         private DateTime mStaffDOB;
 
@@ -121,7 +165,7 @@ namespace ClassLibrary
                 mStaffName = Convert.ToString(DB.DataTable.Rows[0]["StaffName"]);
                 mStaffDOB = Convert.ToDateTime(DB.DataTable.Rows[0]["StaffDOB"]);
                 mStaffEmailAddress = Convert.ToString(DB.DataTable.Rows[0]["StaffEmail"]);
-                mEmployer = Convert.ToBoolean(DB.DataTable.Rows[0]["Employer/Employee"]);
+                mEmployer = Convert.ToBoolean(DB.DataTable.Rows[0]["EmployerEmployee"]);
                 mStaffSalary = Convert.ToDecimal(DB.DataTable.Rows[0]["StaffSalary"]);
                 //return that everything worked OK
                 return true;
