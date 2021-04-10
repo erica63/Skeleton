@@ -8,8 +8,37 @@ using ClassLibrary;
 
 public partial class _1_DataEntry : System.Web.UI.Page
 {
+    //variable to sstore the primary key with page level scope 
+    Int32 StaffID; 
     protected void Page_Load(object sender, EventArgs e)
     {
+        //get the number of the address to be processed 
+        StaffID = Convert.ToInt32(Session["StaffID"]);
+        if (IsPostBack == false)
+        {
+            //if this is not a new record 
+            if(StaffID != -1)
+            {
+                //display the current data for the record 
+                DisplayStaff();
+            }
+        }
+
+
+    }
+
+    private void DisplayStaff()
+    {
+        //create an instance of the staff lisst 
+        clsStaffCollection StaffList = new clsStaffCollection();
+        //find the record to update
+        StaffList.ThisStaff.Find(StaffID);
+        //display the data for this recor 
+        txtStaffID.Text = StaffList.ThisStaff.StaffID.ToString();
+        txtStaffDOB.Text = StaffList.ThisStaff.StaffDOB.ToShortDateString();
+        txtStaffName.Text = StaffList.ThisStaff.StaffName.ToString();
+        txtStaffEmail.Text = StaffList.ThisStaff.StaffEmailAddress.ToString();
+        chkEmployerEmployee.Checked = StaffList.ThisStaff.Employer;
 
     }
 
@@ -22,14 +51,14 @@ public partial class _1_DataEntry : System.Web.UI.Page
         string StaffDOB = txtStaffDOB.Text;
         string StaffEmailAddress = txtStaffEmail.Text;
         string StaffSalary = txtStaffSalary.Text;
-        string StaffID = txtStaffID.Text;
+       // string StaffID = txtStaffID.Text;
         string Error = "";
         //validate the data
-        Error = StaffMember.Valid(StaffName, StaffID, StaffEmailAddress, StaffDOB, StaffSalary);
+        Error = StaffMember.Valid(StaffName, StaffEmailAddress, StaffDOB, StaffSalary);
         if (Error == "")
         {
             //capture the StaffID
-            StaffMember.StaffID = int.Parse(txtStaffID.Text);
+            StaffMember.StaffID = StaffID;
             //capture the StaffName
             StaffMember.StaffName = StaffName;
             //capture the StaffEMail
@@ -42,10 +71,28 @@ public partial class _1_DataEntry : System.Web.UI.Page
             StaffMember.Employer = chkEmployerEmployee.Checked;
             //store staff
             clsStaffCollection StaffList = new clsStaffCollection();
-            //add new record
-            StaffList.Add();
-            //redirect back to the listpage 
-            Response.Redirect("StaffsList.aspx");
+
+            //if this is a new record i.e StaffID = -1 then add the data 
+            if (StaffID == -1)
+            {
+                //set the ThisStaff Property 
+                StaffList.ThisStaff = StaffMember;
+                //add the record 
+                StaffList.Add();
+            }
+            //otherwise it must be an update
+            else
+            {
+                //find the record to update 
+                StaffList.ThisStaff.Find(StaffID);
+                //set the ThisStaff property 
+                StaffList.ThisStaff = StaffMember;
+                //update the record
+                StaffList.Update();
+            }
+            //redirect back to the listpage
+            Response.Redirect("StaffsDataEntry.aspx");
+
         }
         else
         {

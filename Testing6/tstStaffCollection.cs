@@ -38,7 +38,7 @@ namespace Testing6
             TestItem.StaffName = "Name";
             TestItem.StaffSalary = 30000;
             TestItem.StaffEmailAddress = "jayemail@gmail.com";
-            TestItem.StaffDOB = DateTime.Parse("23/03/1999"); 
+            TestItem.StaffDOB = DateTime.Parse("23/03/1999");
             //add the item to the test list
             TestList.Add(TestItem);
             //assign the data to the property
@@ -116,6 +116,7 @@ namespace Testing6
             //test to see that the two values are the same 
             Assert.AreEqual(AllStaff.Count, 2);
         }
+    
 
         [TestMethod]
         public void AddMethodOK()
@@ -144,7 +145,94 @@ namespace Testing6
             //test to see that the two values are the same 
             Assert.AreEqual(AllStaff.ThisStaff, TestItem);
         }
-        
+
+        [TestMethod]
+        public void updateMethodOK()
+        {
+            //create an instance of the class we want to crete 
+            clsStaffCollection AllStaff = new clsStaffCollection();
+            //create item of test data
+            clsStaff TestItem = new clsStaff();
+            //var to store the primary key 
+            Int32 PrimaryKey = 0;
+            //set properties
+            TestItem.Employer = true;
+            TestItem.StaffID = 1;
+            TestItem.StaffName = "Name";
+            TestItem.StaffSalary = 30000;
+            TestItem.StaffEmailAddress = "jayemail@gmail.com";
+            TestItem.StaffDOB = DateTime.Parse("23/03/1999");
+            //set ThisStaff to data
+            AllStaff.ThisStaff = TestItem;
+            //add the record 
+            PrimaryKey = AllStaff.Add();
+            //set the primary key to the test data
+            TestItem.StaffID = PrimaryKey;
+            //modify test data
+            TestItem.Employer = false;
+            TestItem.StaffID = 9;
+            TestItem.StaffName = "JayName";
+            TestItem.StaffSalary = 50000;
+            TestItem.StaffEmailAddress = "TestEmailupdate@gmail.com";
+            TestItem.StaffDOB = DateTime.Parse("22/08/2001");
+            //set the record based on the new test data
+            AllStaff.ThisStaff = TestItem;
+            //update the record 
+            AllStaff.Update();
+            //find the record
+            AllStaff.ThisStaff.Find(PrimaryKey);
+            //test to see ThisStaff matches the test data
+            Assert.AreEqual(AllStaff.ThisStaff, TestItem);
+
+        }
+
+        [TestMethod]
+        public void DeleteMethodOK()
+        {
+            //create an instance of the class we want to create 
+            clsStaffCollection AllStaff = new clsStaffCollection();
+            //create the test data
+            clsStaff TestItem = new clsStaff();
+            //var to store the  primary key 
+            Int32 PrimaryKey = 0;
+            //set its properties 
+            TestItem.Employer = true;
+            TestItem.StaffID = 1;
+            TestItem.StaffName = "Name";
+            TestItem.StaffSalary = 30000;
+            TestItem.StaffEmailAddress = "jayemail@gmail.com";
+            TestItem.StaffDOB = DateTime.Parse("23/03/1999");
+            //set ThisStaff to the test data 
+            AllStaff.ThisStaff = TestItem;
+            //add the record
+            PrimaryKey = AllStaff.Add();
+            //set the primary key to test data
+            TestItem.StaffID = PrimaryKey;
+            //find the record
+            AllStaff.ThisStaff.Find(PrimaryKey);
+            //delete the record
+            AllStaff.Delete();
+            //now find the record
+            Boolean Found = AllStaff.ThisStaff.Find(PrimaryKey);
+            //test to see the record was not found 
+            Assert.IsFalse(Found);
+        }
+
+        [TestMethod]
+        public void ReportByStaffNameMethodOK()
+        {
+            //create an instance of the class containing unfiltered results
+            clsStaffCollection AllStaff = new clsStaffCollection();
+            //create an instance of the filtered data 
+            clsStaffCollection FilteredStaff = new clsStaffCollection();
+            //apply a blank string (should retunr all records)
+            FilteredStaff.ReportByStaffName("");
+            //test to see that the two values are the same 
+            Assert.AreEqual(AllStaff.Count, FilteredStaff.Count);
+        }
+
 
     }
+    
 }
+
