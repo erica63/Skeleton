@@ -151,7 +151,7 @@ namespace Testing1
             //invoke the method
             Found = ACustomer.Find(CustomerId);
             //check the property
-            if (ACustomer.CustomerName != "Suraj")
+            if (ACustomer.CustomerName != "Suraj Odedra")
             {
                 OK = false;
             }
@@ -173,7 +173,7 @@ namespace Testing1
             //invoke the method
             Found = ACustomer.Find(CustomerId);
             //check the property
-            if (ACustomer.CustomerDOB !=Convert.ToDateTime("19/7/2000"))
+            if (ACustomer.CustomerDOB !=Convert.ToDateTime("19/7/2002"))
             {
                 OK = false;
             }
@@ -195,7 +195,7 @@ namespace Testing1
             //invoke the method
             Found = ACustomer.Find(CustomerId);
             //check the property
-            if (ACustomer.CustomerEmailAddress != "Suraj@gmail.com")
+            if (ACustomer.CustomerEmailAddress != "suraj@gmail.com")
             {
                 OK = false;
             }

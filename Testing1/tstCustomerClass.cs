@@ -216,7 +216,7 @@ namespace Testing1
                 {
                     OK = false;
                 }
-                //check that the first record is id 23
+                //check that the second record is id 23
                 if (FilteredCustomers.CustomerList[1].CustomerId != 23)
                 {
                     OK = false;
