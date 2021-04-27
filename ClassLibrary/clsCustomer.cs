@@ -188,13 +188,13 @@ namespace ClassLibrary
             {
                 //copy the dateAdded value to the DateTemp variable
                 DateTemp = Convert.ToDateTime(CustomerDOB);
-                if (DateTemp < (DateTime.Parse("19/7/2000").AddYears(-100)))
+                if (DateTemp < (DateTime.Today.AddYears(-200)))
                 {
                     //record the error
                     Error = Error + "The date cannot be in the past : ";
                 }
 
-                if (DateTemp > DateTime.Parse("19/7/2000").AddYears(50))
+                if (DateTemp > DateTime.Today.AddYears(150))
                 {
                     //record the error
                     Error = Error + "The date cannot be in the future : ";

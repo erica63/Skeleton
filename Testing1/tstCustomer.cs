@@ -365,6 +365,21 @@ namespace Testing1
         }
 
         [TestMethod]
+        public void CustomerEmailAddressExtremeMax()
+        {
+            //create an instance of the class we want to create
+            clsCustomer ACustomer = new clsCustomer();
+            //string variable to store any error message
+            String Error = "";
+            //this should pass
+            CustomerEmailAddress = CustomerEmailAddress.PadRight(200, 's');
+            //invoke the method
+            Error = ACustomer.Valid(CustomerName, CustomerDOB, CustomerEmailAddress, CustomerAddress);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
         public void CustomerAddressMinLessOne()
         {
             //create an instance of the class we want to create
@@ -462,7 +477,7 @@ namespace Testing1
             //string variable to store any error message
             String Error = "";
             //this should fail
-            CustomerAddress = CustomerAddress.PadRight(500, 's');
+            CustomerAddress = CustomerAddress.PadRight(200, 's');
             //invoke the method
             Error = ACustomer.Valid(CustomerName, CustomerDOB, CustomerEmailAddress, CustomerAddress);
             //test to see that the result is correct
@@ -582,7 +597,7 @@ namespace Testing1
             //string variable to store any error message
             String Error = "";
             //this should fail
-            CustomerName = CustomerName.PadRight(500, 's');
+            CustomerName = CustomerName.PadRight(200, 's');
             //invoke the method
             Error = ACustomer.Valid(CustomerName, CustomerDOB, CustomerEmailAddress, CustomerAddress);
             //test to see that the result is correct
@@ -614,9 +629,9 @@ namespace Testing1
             //create a variable to store the test date data
             DateTime TestDate;
             //set the date of the customer DOB
-            TestDate = DateTime.Parse("19/7/2000").AddYears(-100);
-            //change the date to whatever the date is less 100 years
-            TestDate = TestDate.AddYears(-50);
+            TestDate = DateTime.Today.AddYears(-150);
+            //change the date to whatever the date is less 150 years
+            TestDate = TestDate.AddYears(-150);
             //convert the date variable to a string variable
             string CustomerDOB = TestDate.ToString();
             //invoke the method
@@ -635,9 +650,9 @@ namespace Testing1
             //create a variable to store the test date data
             DateTime TestDate;
             //set the date of the customer DOB
-            TestDate = DateTime.Parse("19/7/2000").AddYears(-101);
-            //change the date to whatever the date is less 100 years
-            TestDate = TestDate.AddYears(-1);
+            TestDate = DateTime.Today.AddYears(-99);
+            //change the date to whatever the date is less 99 years
+            TestDate = TestDate.AddYears(-99);
             //convert the date variable to a string variable
             string CustomerDOB = TestDate.ToString();
             //invoke the method
@@ -656,7 +671,9 @@ namespace Testing1
             //create a variable to store the test date data
             DateTime TestDate;
             //set the date of the customer DOB
-            TestDate = DateTime.Parse("19/7/2000").AddYears(-100);
+            TestDate = DateTime.Today.AddYears(-100);
+            //change the date to whatever the date is less 100 years
+            TestDate = TestDate.AddYears(-100);
             //convert the date variable to a string variable
             string CustomerDOB = TestDate.ToString();
             //invoke the method
@@ -675,9 +692,9 @@ namespace Testing1
             //create a variable to store the test date data
             DateTime TestDate;
             //set the date of the customer DOB
-            TestDate = DateTime.Parse("19/7/2000").AddYears(99);
-            //change the date to whatever the date is less 100 years
-            TestDate = TestDate.AddYears(1);
+            TestDate = DateTime.Today.AddYears(-101);
+            //change the date to whatever the date is mores 101 years
+            TestDate = TestDate.AddYears(-101);
             //convert the date variable to a string variable
             string CustomerDOB = TestDate.ToString();
             //invoke the method
@@ -696,9 +713,9 @@ namespace Testing1
             //create a variable to store the test date data
             DateTime TestDate;
             //set the date of the customer DOB
-            TestDate = DateTime.Parse("19/7/2000").AddYears(50);
-            //change the date to whatever the date is less 100 years
-            TestDate = TestDate.AddYears(100);
+            TestDate = DateTime.Today.AddYears(150);
+            //change the date to whatever the date is more 150 years
+            TestDate = TestDate.AddYears(150);
             //convert the date variable to a string variable
             string CustomerDOB = TestDate.ToString();
             //invoke the method
