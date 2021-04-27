@@ -12,7 +12,7 @@
         </div>
         <asp:ListBox ID="lstOrders" runat="server" Height="280px" Width="386px"></asp:ListBox>
         <p>
-            <asp:Button ID="btnAdd" runat="server" Text="Add" />
+            <asp:Button ID="btnAdd" runat="server" Text="Add" OnClick="btnAdd_Click1" />
             <asp:Button ID="btnEdit" runat="server" OnClick="btnEdit_Click" Text="Edit" />
             <asp:Button ID="btnDelete" runat="server" OnClick="btnDelete_Click" Text="Delete" />
         </p>

@@ -108,15 +108,15 @@ namespace ClassLibrary
             DB.Execute("sproc_tblOrder_Delete");
         }
 
-        public void ReportByDescription(String Description)
+        public void ReportByShippingAddress(String ShippingAddress)
         {
             //Filters the records based on a full or partial description
             //Connect to the database
             clsDataConnection DB = new clsDataConnection();
             //Send the description parameter to the database
-            DB.AddParameter("@OrderDesc", Description);
+            DB.AddParameter("@ShippingAddress", ShippingAddress);
             //Execute the stored procedure
-            DB.Execute("sproc_tblOrder_FilterByDescription");
+            DB.Execute("sproc_tblOrder_FilterByShippingAddress");
             //Populate the array list with the data table
             PopulateArray(DB);
         }

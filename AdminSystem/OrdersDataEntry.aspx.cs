@@ -10,6 +10,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
 {
     //Variable to store the primary key with page level scope
     Int32 OrderId;
+
     protected void Page_Load(object sender, EventArgs e)
     {
         //Get the number of the order to be processed
@@ -33,9 +34,9 @@ public partial class _1_DataEntry : System.Web.UI.Page
         //Display the data for this record
         txtOrderId.Text = Orders.ThisOrder.OrderId.ToString();
         txtOrderDate.Text = Orders.ThisOrder.DateAdded.ToString();
-        txtOrderDesc.Text = Orders.ThisOrder.Description.ToString();
+        txtOrderDesc.Text = Orders.ThisOrder.Description;
         txtOrderQuantity.Text = Orders.ThisOrder.OrderQuantity.ToString();
-        txtShippingAddress.Text = Orders.ThisOrder.ShippingAddress.ToString();
+        txtShippingAddress.Text = Orders.ThisOrder.ShippingAddress;
     }
 
     protected void btnOk_Click(object sender, EventArgs e)
@@ -134,5 +135,11 @@ public partial class _1_DataEntry : System.Web.UI.Page
             txtOrderQuantity.Text = AnOrder.OrderQuantity.ToString();
 
         }
+    }
+
+    protected void btnCancel_Click(object sender, EventArgs e)
+    {
+        //Redirect back to the listpage
+        Response.Redirect("OrdersList.aspx");
     }
 }
