@@ -17,7 +17,7 @@
             <asp:Button ID="btnDelete" runat="server" OnClick="btnDelete_Click" Text="Delete" />
         </p>
         <p>
-            Enter a description
+            Enter an address&nbsp;
             <asp:TextBox ID="txtFilter" runat="server"></asp:TextBox>
         </p>
         <p>

@@ -242,48 +242,48 @@ namespace tstOrderClass
         }
 
         [TestMethod]
-        public void ReportByDescriptionMethodOK()
+        public void ReportByShippingAddressMethodOK()
         {
             //Create an instance of the class containing unfiltered results
             clsOrderCollection AllOrders = new clsOrderCollection();
             //Create an instance of the filtered data
             clsOrderCollection FilteredOrders = new clsOrderCollection();
             //Apply a blank string (should return all records)
-            FilteredOrders.ReportByDescription("");
+            FilteredOrders.ReportByShippingAddress("");
             //Test to see that the two values are the same
             Assert.AreEqual(AllOrders.Count, FilteredOrders.Count);
         }
 
         [TestMethod]
-        public void ReportByDescriptionNoneFound()
+        public void ReportByShippingAddressNoneFound()
         {
             //Create an instance of the filtered data
             clsOrderCollection FilteredOrders = new clsOrderCollection();
             //Apply a description that doesn't exist
-            FilteredOrders.ReportByDescription("xxxx");
+            FilteredOrders.ReportByShippingAddress("xxxx");
             //Test to see that there are no records
             Assert.AreEqual(0, FilteredOrders.Count);
         }
 
         [TestMethod]
-        public void ReportByDescriptionTestDataFound()
+        public void ReportByShippingAddressTestDataFound()
         {
             //Create an instance of the filtered data
             clsOrderCollection FilteredOrders = new clsOrderCollection();
             //Var to store outcome
             Boolean OK = true;
-            //Apply a description that doesn't exist
-            FilteredOrders.ReportByDescription("yyy");
+            //Apply a shipping address that doesn't exist
+            FilteredOrders.ReportByShippingAddress("yyy");
             //Check that the correct number of records are found
             if (FilteredOrders.Count == 2)
             {
-                //Check that the first record is ID 43
-                if (FilteredOrders.OrderList[0].OrderId != 43)
+                //Check that the first record is ID 57
+                if (FilteredOrders.OrderList[0].OrderId != 57)
                 {
                     OK = false;
                 }
-                //Check that the first record is ID 44
-                if (FilteredOrders.OrderList[1].OrderId != 44)
+                //Check that the second record is ID 58
+                if (FilteredOrders.OrderList[1].OrderId != 58)
                 {
                     OK = false;
                 }
