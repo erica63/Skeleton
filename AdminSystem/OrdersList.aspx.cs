@@ -33,14 +33,6 @@ public partial class _Default : System.Web.UI.Page
         lstOrders.DataBind();
     }
 
-    //Event handler for the add button
-    protected void btnAdd_Click(object sender, EventArgs e)
-    {
-        //Store -1 into the session object to indicate this is a new record
-        Session["OrderId"] = -1;
-        //Redirect to the data entry page
-        Response.Redirect("OrdersDataEntry.aspx");
-    }
 
 
 
@@ -61,7 +53,7 @@ public partial class _Default : System.Web.UI.Page
         else //If no record has been selected 
         {
             //Display an error
-            lblError.Text = "Please select a record to delete from the list";
+            lblError.Text = "Please select a record to edit from the list";
 
         }
     }
@@ -92,12 +84,12 @@ public partial class _Default : System.Web.UI.Page
     {
         //Create an instance of the order collection
         clsOrderCollection Orders = new clsOrderCollection();
-        Orders.ReportByDescription(txtFilter.Text);
+        Orders.ReportByShippingAddress(txtFilter.Text);
         lstOrders.DataSource = Orders.OrderList;
         //Set the name of the primary key
         lstOrders.DataValueField = "OrderId";
         //Set the name of the field to display
-        lstOrders.DataTextField = "Description";
+        lstOrders.DataTextField = "ShippingAddress";
         //Bind the data to the list
         lstOrders.DataBind();
     }
@@ -106,15 +98,27 @@ public partial class _Default : System.Web.UI.Page
     {
         //Create an instance of the order collection
         clsOrderCollection Orders = new clsOrderCollection();
-        Orders.ReportByDescription("");
+        Orders.ReportByShippingAddress("");
         //Clear any existing filter to tidy up the interface
         txtFilter.Text = "";
         lstOrders.DataSource = Orders.OrderList;
         //Set the name of the primary key
         lstOrders.DataValueField = "OrderId";
         //Set the name of the field to display
-        lstOrders.DataTextField = "Description";
+        lstOrders.DataTextField = "ShippingAddress";
         //Bind the data to the list
         lstOrders.DataBind();
     }
+
+
+
+    //Event handler for the add button
+    protected void btnAdd_Click1(object sender, EventArgs e)
+    {
+            //Store -1 into the session object to indicate this is a new record
+            Session["OrderId"] = -1;
+            //Redirect to the data entry page
+            Response.Redirect("OrdersDataEntry.aspx");
+        }
+    
 }
