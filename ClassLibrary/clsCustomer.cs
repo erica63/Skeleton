@@ -147,6 +147,7 @@ namespace ClassLibrary
             //create a string variable to store the error
             String Error = "";
             DateTime DateTemp;
+            String CName;
             //if the customer email address is blank
             if (CustomerEmailAddress.Length == 0)
             {
@@ -174,17 +175,26 @@ namespace ClassLibrary
                 Error = Error + "The CustomerAddress must be less than 50 characters : ";
             }
 
-            if (CustomerName.Length == 0)
-            {
-                Error = Error + "The customer Name may not be blank : ";
-            }
-
-            if (CustomerName.Length > 50)
-            {
-                Error = Error + "The customer Name must be less than 50 characters : ";
-            }
-
             try
+            {
+
+                CName = Convert.ToString(CustomerName);
+                if (CustomerName.Length == 0)
+                {
+                    Error = Error + "The customer Name may not be blank : ";
+                }
+
+                if (CustomerName.Length > 50)
+                {
+                    Error = Error + "The customer Name must be less than 50 characters : ";
+                }
+            }
+            catch
+            {
+                Error = Error + "Invalid Input";
+            }
+
+                try
             {
                 //copy the dateAdded value to the DateTemp variable
                 DateTemp = Convert.ToDateTime(CustomerDOB);
@@ -194,7 +204,7 @@ namespace ClassLibrary
                     Error = Error + "The date cannot be in the past : ";
                 }
 
-                if (DateTemp > DateTime.Today.AddYears(150))
+                if (DateTemp > DateTime.Today)
                 {
                     //record the error
                     Error = Error + "The date cannot be in the future : ";
