@@ -142,7 +142,7 @@ namespace ClassLibrary
 
         }
 
-        public string Valid(string CustomerName, string CustomerDOB, string CustomerEmailAddress, string CustomerAddress)
+        public string Valid(String CustomerName, string CustomerDOB, string CustomerEmailAddress, string CustomerAddress)
         {
             //create a string variable to store the error
             String Error = "";
@@ -179,12 +179,12 @@ namespace ClassLibrary
             {
 
                 CName = Convert.ToString(CustomerName);
-                if (CustomerName.Length == 0)
+                if (CName.Length == 0)
                 {
                     Error = Error + "The customer Name may not be blank : ";
                 }
 
-                if (CustomerName.Length > 50)
+                if (CName.Length > 50)
                 {
                     Error = Error + "The customer Name must be less than 50 characters : ";
                 }
@@ -201,13 +201,13 @@ namespace ClassLibrary
                 if (DateTemp < (DateTime.Today.AddYears(-200)))
                 {
                     //record the error
-                    Error = Error + "The date cannot be in the past : ";
+                    Error = Error + "The date cannot be in the past: ";
                 }
 
                 if (DateTemp > DateTime.Today)
                 {
                     //record the error
-                    Error = Error + "The date cannot be in the future : ";
+                    Error = Error + "The date cannot be in the future: ";
                 }
             }
             catch
