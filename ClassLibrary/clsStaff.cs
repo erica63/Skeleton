@@ -39,7 +39,7 @@ namespace ClassLibrary
             }
         }
 
-        public string Valid(string staffName, string staffEmailAddress, string staffDOB, string staffSalary)
+        public string Valid(string staffName, string staffEmailAddress, string staffDOB, decimal staffSalary)
         {
             //create a string variable to store the error
             String Error = "";
@@ -65,7 +65,7 @@ namespace ClassLibrary
                     Error = Error + "The date cannot be in the past : ";
                 }
 
-                if (TestDOB > DateTime.Parse("01/01/1940"))
+                if (TestDOB > DateTime.Parse("01/01/2022"))
                 {
                     //record the error
                     Error = Error + "The date cannot be in the future : ";
@@ -181,7 +181,7 @@ namespace ClassLibrary
 
         }
 
-        public string Valid(string staffID, string staffName, string staffEmail, string staffDOB, string employer, string staffSalary)
+        public string Valid(string staffID, string staffName, string staffEmail, string staffDOB, string employer, decimal staffSalary)
         {
             //create a string variable to store the error
             String Error = "";
@@ -207,7 +207,7 @@ namespace ClassLibrary
                     Error = Error + "The date cannot be in the past : ";
                 }
 
-                if (TestDOB > DateTime.Parse("01/01/1940"))
+                if (TestDOB > DateTime.Parse("01/01/2022"))
                 {
                     //record the error
                     Error = Error + "The date cannot be in the future : ";

@@ -11,13 +11,24 @@
         <div>
         </div>
         <asp:ListBox ID="lstStaffList" runat="server" style="z-index: 1; left: 45px; top: 32px; position: absolute; height: 347px; width: 393px"></asp:ListBox>
-        <asp:Button ID="btnAdd" runat="server" OnClick="btnAdd_Click" style="z-index: 1; left: 30px; top: 391px; position: absolute; height: 28px; width: 82px;" Text="Add" />
+        <asp:Button ID="btnAdd" runat="server" OnClick="btnAdd_Click" style="z-index: 1; top: 390px; position: absolute; height: 28px; width: 82px; right: 1057px;" Text="Add" />
         <p>
             &nbsp;</p>
         <p>
-            <asp:Button ID="btnDelete" runat="server" OnClick="btnDelete_Click" style="z-index: 1; left: 260px; top: 393px; position: absolute; width: 82px; height: 27px" Text="Delete" />
+            &nbsp;</p>
+        <p>
+            &nbsp;</p>
+        <asp:Label ID="lblStaffName" runat="server" style="z-index: 1; left: 39px; top: 447px; position: absolute; width: 113px; height: 18px; right: 1034px" Text="Enter Staff Name:"></asp:Label>
+        <asp:TextBox ID="txtBoxStaffName" runat="server" style="z-index: 1; left: 162px; top: 446px; position: absolute; width: 247px;"></asp:TextBox>
+        <asp:Button ID="btnApply" runat="server" OnClick="btnApply_Click" style="z-index: 1; left: 38px; top: 483px; position: absolute" Text="Apply" />
+        <asp:Button ID="btnClear" runat="server" OnClick="btnClear_Click" style="z-index: 1; left: 106px; top: 482px; position: absolute" Text="Clear" />
+        <p>
+        <asp:Button ID="btnEdit" runat="server" style="z-index: 1; left: 164px; top: 390px; position: absolute; width: 82px; height: 28px;" Text="Edit" OnClick="btnEdit_Click1" />
         </p>
-        <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 38px; top: 510px; position: absolute" Text="lblError"></asp:Label>
+        <p>
+        <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 38px; top: 524px; position: absolute" Text="lblError"></asp:Label>
+        </p>
+            <asp:Button ID="btnDelete" runat="server" OnClick="btnDelete_Click" style="z-index: 1; left: 281px; top: 388px; position: absolute; width: 82px; height: 27px" Text="Delete" />
     </form>
 </body>
 </html>

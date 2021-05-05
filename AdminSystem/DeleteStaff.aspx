@@ -14,7 +14,7 @@
             <br />
             <asp:Button ID="btnYes" runat="server" style="z-index: 1; left: 20px; top: 44px; position: absolute; width: 75px; margin-bottom: 0px" Text="Yes" />
         </div>
-        <asp:Button ID="btnNO" runat="server" style="z-index: 1; left: 111px; top: 44px; position: absolute; width: 68px" Text="No" />
+        <asp:Button ID="btnNO" runat="server" style="z-index: 1; left: 111px; top: 44px; position: absolute; width: 68px" Text="No" OnClick="btnNO_Click" />
     </form>
 </body>
 </html>
