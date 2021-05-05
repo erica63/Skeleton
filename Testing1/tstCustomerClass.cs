@@ -86,10 +86,10 @@ namespace Testing1
             Int32 PrimaryKey = 0;
             //set its properties
             testItem.CustomerId = 1;
-            testItem.CustomerName = "Thomas";
-            testItem.CustomerEmailAddress = "thomas@gmail.com";
-            testItem.CustomerDOB = DateTime.Parse("22/07/1995");
-            testItem.CustomerAddress = "Downtown, LA";
+            testItem.CustomerName = "Suraj";
+            testItem.CustomerEmailAddress = "Suraj@gmail.com";
+            testItem.CustomerDOB = DateTime.Parse("19/07/2000");
+            testItem.CustomerAddress = "12, Marydene drive";
             testItem.Member = true;
             //set this address to the test data
             AllCustomers.ThisCustomer = testItem;
