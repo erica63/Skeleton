@@ -25,6 +25,11 @@ public partial class DeleteStaff : System.Web.UI.Page
         //delete the record 
         staffCollection.Delete();
         //redirect back to the main page
-        Response.Redirect("StaffList.aspx");
+        Response.Redirect("StaffsList.aspx");
+    }
+
+    protected void btnNO_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("StaffsList.aspx");
     }
 }

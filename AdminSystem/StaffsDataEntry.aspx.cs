@@ -23,8 +23,6 @@ public partial class _1_DataEntry : System.Web.UI.Page
                 DisplayStaff();
             }
         }
-
-
     }
 
     private void DisplayStaff()
@@ -36,8 +34,8 @@ public partial class _1_DataEntry : System.Web.UI.Page
         //display the data for this recor 
         txtStaffID.Text = StaffList.ThisStaff.StaffID.ToString();
         txtStaffDOB.Text = StaffList.ThisStaff.StaffDOB.ToShortDateString();
-        txtStaffName.Text = StaffList.ThisStaff.StaffName.ToString();
-        txtStaffEmail.Text = StaffList.ThisStaff.StaffEmailAddress.ToString();
+        txtStaffName.Text = StaffList.ThisStaff.StaffName;
+        txtStaffEmail.Text = StaffList.ThisStaff.StaffEmailAddress;
         chkEmployerEmployee.Checked = StaffList.ThisStaff.Employer;
 
     }
@@ -46,11 +44,11 @@ public partial class _1_DataEntry : System.Web.UI.Page
     {
         //create a new instance of clsSaff
         clsStaff StaffMember = new clsStaff();
-        //capture the Staff name
+        //capture the Staff 
         string StaffName = txtStaffName.Text;
         string StaffDOB = txtStaffDOB.Text;
         string StaffEmailAddress = txtStaffEmail.Text;
-        string StaffSalary = txtStaffSalary.Text;
+        decimal StaffSalary = decimal.Parse(txtStaffSalary.Text);
        // string StaffID = txtStaffID.Text;
         string Error = "";
         //validate the data
@@ -91,7 +89,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
                 StaffList.Update();
             }
             //redirect back to the listpage
-            Response.Redirect("StaffsDataEntry.aspx");
+            Response.Redirect("StaffsList.aspx");
 
         }
         else
@@ -131,6 +129,6 @@ public partial class _1_DataEntry : System.Web.UI.Page
 
     protected void btnCancel_Click(object sender, EventArgs e)
     {
-
+        Response.Redirect("StaffsList.aspx");
     }
 }
