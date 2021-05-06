@@ -31,7 +31,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         clsStaffCollection StaffList = new clsStaffCollection();
         //find the record to update
         StaffList.ThisStaff.Find(StaffID);
-        //display the data for this recor 
+        //display the data for this record
         txtStaffID.Text = StaffList.ThisStaff.StaffID.ToString();
         txtStaffDOB.Text = StaffList.ThisStaff.StaffDOB.ToShortDateString();
         txtStaffName.Text = StaffList.ThisStaff.StaffName;
@@ -46,9 +46,9 @@ public partial class _1_DataEntry : System.Web.UI.Page
         clsStaff StaffMember = new clsStaff();
         //capture the Staff 
         string StaffName = txtStaffName.Text;
-        string StaffDOB = txtStaffDOB.Text;
+        string StaffDOB = (txtStaffDOB.Text);
         string StaffEmailAddress = txtStaffEmail.Text;
-        decimal StaffSalary = decimal.Parse(txtStaffSalary.Text);
+        string StaffSalary = (txtStaffSalary.Text);
        // string StaffID = txtStaffID.Text;
         string Error = "";
         //validate the data
@@ -121,7 +121,14 @@ public partial class _1_DataEntry : System.Web.UI.Page
             txtStaffEmail.Text = StaffMember.StaffEmailAddress;
             txtStaffSalary.Text = StaffMember.StaffSalary.ToString();
             txtStaffDOB.Text = StaffMember.StaffDOB.ToString();
+            
 
+        }
+
+        else
+        {
+            //error if id number doesnt exist 
+            lblError.Text = "Staff Member does not exist";
         }
 
        

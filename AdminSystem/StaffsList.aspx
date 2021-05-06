@@ -11,7 +11,7 @@
         <div>
         </div>
         <asp:ListBox ID="lstStaffList" runat="server" style="z-index: 1; left: 45px; top: 32px; position: absolute; height: 347px; width: 393px"></asp:ListBox>
-        <asp:Button ID="btnAdd" runat="server" OnClick="btnAdd_Click" style="z-index: 1; top: 390px; position: absolute; height: 28px; width: 82px; right: 1057px;" Text="Add" />
+        <asp:Button ID="btnAdd" runat="server" OnClick="btnAdd_Click" style="z-index: 1; top: 391px; position: absolute; height: 28px; width: 82px; left: 49px;" Text="Add" />
         <p>
             &nbsp;</p>
         <p>
@@ -23,12 +23,13 @@
         <asp:Button ID="btnApply" runat="server" OnClick="btnApply_Click" style="z-index: 1; left: 38px; top: 483px; position: absolute" Text="Apply" />
         <asp:Button ID="btnClear" runat="server" OnClick="btnClear_Click" style="z-index: 1; left: 106px; top: 482px; position: absolute" Text="Clear" />
         <p>
-        <asp:Button ID="btnEdit" runat="server" style="z-index: 1; left: 164px; top: 390px; position: absolute; width: 82px; height: 28px;" Text="Edit" OnClick="btnEdit_Click1" />
+        <asp:Button ID="btnEdit" runat="server" style="z-index: 1; left: 160px; top: 390px; position: absolute; width: 82px; height: 28px; right: 1111px;" Text="Edit" OnClick="btnEdit_Click1" />
         </p>
         <p>
         <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 38px; top: 524px; position: absolute" Text="lblError"></asp:Label>
         </p>
-            <asp:Button ID="btnDelete" runat="server" OnClick="btnDelete_Click" style="z-index: 1; left: 281px; top: 388px; position: absolute; width: 82px; height: 27px" Text="Delete" />
+            <asp:Button ID="btnDelete" runat="server" OnClick="btnDelete_Click" style="z-index: 1; left: 275px; top: 390px; position: absolute; width: 82px; height: 27px" Text="Delete" />
+        <asp:Button ID="btnRefresh" runat="server" OnClick="btnRefresh_Click" style="z-index: 1; left: 460px; top: 43px; position: absolute" Text="Refresh" />
     </form>
 </body>
 </html>

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace Testing6
 {
     [TestClass]
-    class tstStaffCollection
+    public class tstStaffCollection
     {
         [TestMethod]
         public void InstanceOK()
@@ -54,7 +54,7 @@ namespace Testing6
             //create an instance of the classs we want to create 
             clsStaffCollection AllStaff = new clsStaffCollection();
             //create some test data to assign 
-            Int32 SomeCount = 0;
+            Int32 SomeCount = 2;
             //asssign data to Staff n
             AllStaff.Count = SomeCount;
             //test to see that the two values are the same 
@@ -115,7 +115,8 @@ namespace Testing6
             clsStaffCollection AllStaff = new clsStaffCollection();
             //test to see that the two values are the same 
             Assert.AreEqual(AllStaff.Count, 2);
-        }
+       }
+       
     
 
         [TestMethod]
@@ -231,6 +232,16 @@ namespace Testing6
             Assert.AreEqual(AllStaff.Count, FilteredStaff.Count);
         }
 
+        [TestMethod]
+        public void ReportByStaffNameNoneFound()
+        {
+            //create an instance of the class containing filtered data 
+            clsStaffCollection FilteredStaff = new clsStaffCollection();
+            //apply a name that doesnt exist 
+            FilteredStaff.ReportByStaffName("xoxoxoxo");
+            //test to see that there are no records 
+            Assert.AreEqual(0, FilteredStaff.Count);
+        }
 
     }
     
