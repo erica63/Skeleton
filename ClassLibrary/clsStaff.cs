@@ -39,7 +39,7 @@ namespace ClassLibrary
             }
         }
 
-        public string Valid(string staffName, string staffEmailAddress, string staffDOB, decimal staffSalary)
+        public string Valid(string staffName, string staffEmailAddress, string staffDOB, string staffSalary)
         {
             //create a string variable to store the error
             String Error = "";

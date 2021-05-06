@@ -85,20 +85,30 @@ public partial class _1_List : System.Web.UI.Page
         }
     }
 
+
     protected void btnApply_Click(object sender, EventArgs e)
     {
-        //create an instance of the staff collection 
-        clsStaffCollection Staff = new clsStaffCollection();
-        Staff.ReportByStaffName(txtBoxStaffName.Text);
-        lstStaffList.DataSource = Staff.StaffList;
-        //set the name of the primary key 
-        lstStaffList.DataValueField = "StaffID";
-        //set the name of the field to display
-        lstStaffList.DataTextField = "StaffName";
-        //bind the data to the list 
-        lstStaffList.DataBind();
+        {
+            {
+                //create an instance of the staff collection 
+                clsStaffCollection Staff = new clsStaffCollection();
+                Staff.ReportByStaffName(txtBoxStaffName.Text);
+                lstStaffList.DataSource = Staff.StaffList;
+                //set the name of the primary key 
+                lstStaffList.DataValueField = "StaffID";
+                //set the name of the field to display
+                lstStaffList.DataTextField = "StaffName";
+                //bind the data to the list 
+                lstStaffList.DataBind();
+            }
+            if (String.IsNullOrEmpty(txtBoxStaffName.Text))
+                {
+                lblError.Text = "No filter was applied, please refresh and try again";
+            }
 
+        }
     }
+
 
     protected void btnClear_Click(object sender, EventArgs e)
     {
@@ -138,5 +148,20 @@ public partial class _1_List : System.Web.UI.Page
             }
 
         }
+    }
+
+    protected void btnRefresh_Click(object sender, EventArgs e)
+    {
+        //refresh button to bring back list of staff after clearing a filter
+        //create an instance of the county collection 
+        clsStaffCollection Staff = new clsStaffCollection();
+        //set the data source to the list of staffId in the collection
+        lstStaffList.DataSource = Staff.StaffList;
+        //set the name of the primary key 
+        lstStaffList.DataValueField = "StaffID";
+        //sset the data field to display 
+        lstStaffList.DataTextField = "StaffName";
+        //bind the data to the lisst
+        lstStaffList.DataBind();
     }
 }
